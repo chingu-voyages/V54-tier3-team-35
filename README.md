@@ -35,7 +35,7 @@ your repo access and to practice PR'ing with your team *before* you start
 coding!
 
 - Doris John Primary Scrum Master #1: [GitHub](https://github.com/Djohn25) / [LinkedIn](https://www.linkedin.com/in/dorisukpejohn/) / [Email](Jsecus23@gmail.com)
-- Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Victoria Idris Shadow Scrum Master #2: [GitHub](https://github.com/Victoriaidris) / [LinkedIn](https://linkedin.com/in/victoria-idris-7a1177/)/[Email](unekwuidris@gmail)
 - Teammate name #3: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #4: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #5: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
