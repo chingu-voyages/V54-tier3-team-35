@@ -38,7 +38,7 @@ coding!
 - VICTORIA IDRIS SHADOW SCRUM MASTER #2: [GitHub](https://github.com/VICTORIAIDRIS) / [LinkedIn](https://linkedin.com/in/VICTORIA-IDRIS-7847A1177) / [Email](UNEKWUIDRIS@GMAIL.COM)
 - Ahmed Sohail Data Scientist: [GitHub](https://github.com/Ahmed-Sohail2000) / [LinkedIn](https://www.linkedin.com/in/ahmed-sohail/) / [Email](ahmedsohail02000@gmail.com)
 - Zaid Hassan Software Engineer: [GitHub](https://github.com/ZaidHassan96) / [LinkedIn](https://www.linkedin.com/in/zaid-h-b12b421ab/) / [Email](zaidhas96@outlook.com)
-- Conor Barry: [GitHub](https://github.com/CaptOrb) / [LinkedIn](https://www.linkedin.com/in/conor-barry1/) / [Email](tehorb13@gmail.com)
+- Conor Barry Software Engineer: [GitHub](https://github.com/CaptOrb) / [LinkedIn](https://www.linkedin.com/in/conor-barry1/) / [Email](tehorb13@gmail.com)
 - Teammate name #4: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #5: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #6: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
