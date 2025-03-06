@@ -36,7 +36,7 @@ coding!
 
 - Doris John Primary Scrum Master #1: [GitHub](https://github.com/Djohn25) / [LinkedIn](https://www.linkedin.com/in/dorisukpejohn/) / [Email](Jsecus23@gmail.com)
 - Ahmed Sohail Data Scientist: [GitHub](https://github.com/Ahmed-Sohail2000) / [LinkedIn](https://www.linkedin.com/in/ahmed-sohail/) / [Email](ahmedsohail02000@gmail.com)
-- Teammate name #3: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Zaid Hassan Software Engineer: [GitHub](https://github.com/ZaidHassan96) / [LinkedIn](https://www.linkedin.com/in/zaid-h-b12b421ab/) / [Email](zaidhas96@outlook.com)
 - Teammate name #4: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #5: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #6: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
