@@ -43,4 +43,3 @@ coding!
 - Maryam Hazrati: [GitHub](https://github.com/Maryamh12) / [LinkedIn](https://www.linkedin.com/in/maryam-hazratiii/)
 - Teammate name #6: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #7: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
