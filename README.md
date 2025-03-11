@@ -41,6 +41,3 @@ coding!
 - Conor Barry Software Engineer: [GitHub](https://github.com/CaptOrb) / [LinkedIn](https://www.linkedin.com/in/conor-barry1/) / [Email](tehorb13@gmail.com)
 - Ngodi Albert: [GitHub](https://github.com/ngodi) / [LinkedIn](https://linkedin.com/in/albertngodi) / [Email](albertngodi@gmail.com)
 - Maryam Hazrati: [GitHub](https://github.com/Maryamh12) / [LinkedIn](https://www.linkedin.com/in/maryam-hazratiii/)
-- Teammate name #6: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-- Teammate name #7: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-- teammate name #8: [Github](etc) / [Linkedin](etc) 
