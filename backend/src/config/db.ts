@@ -1,9 +1,9 @@
-import { Client } from 'pg';
+import { Pool } from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-const client = new Client({
+const pool = new Pool({  
   user: process.env.DB_USER,
   host: process.env.DB_HOST || 'localhost',
   database: process.env.DB_NAME,
@@ -14,7 +14,7 @@ const client = new Client({
   
 const connectDB = async () => {
     try {
-      await client.connect();
+      await pool.connect();
       console.log('PostgreSQL DATABASE connected');
     } catch (err) {
         const error = err as Error;
@@ -22,4 +22,4 @@ const connectDB = async () => {
     }
   };
   
-  export { client, connectDB };
+  export { pool, connectDB };

@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import { client } from "../config/db";
+import { pool } from "../config/db";
 
 export interface User {
     id: number;
@@ -12,13 +12,13 @@ export interface User {
     static createUser(username: string, email: string, password: string): Promise<User> {
       return bcrypt.genSalt(10)
         .then(salt => bcrypt.hash(password, salt))
-        .then(hashedPassword => {
-          return client.query(
+        .then(hashedPassword =>
+          pool.query(
             'INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email',
             [username, email, hashedPassword]
-          );
-        })
-        .then(result => result.rows[0])
+          )
+        )
+        .then(result => result.rows[0] as User)
         .catch(error => {
           console.error('Error inserting user:', error);
           throw new Error('Database error');
