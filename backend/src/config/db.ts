@@ -23,5 +23,3 @@ const connectDB = async () => {
   };
   
   export { client, connectDB };
-
-export default client;
