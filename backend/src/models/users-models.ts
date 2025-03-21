@@ -9,6 +9,36 @@ export interface User {
 }
 
 class UserModel {
+
+  static isUserEmailExists(email: string): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      pool.query('SELECT * FROM Users WHERE Email = $1', [email], (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        if (results && results.rowCount != null) {
+          resolve(results.rowCount > 0);
+        } else {
+          reject(new Error('Invalid query result'));
+        }
+      });
+    });
+  }
+
+  static isUsernameExists(username: string): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      pool.query('SELECT * FROM Users WHERE Username = $1', [username], (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        if (results && results.rowCount != null) {
+
+        resolve(results.rowCount > 0); 
+        }
+      });
+    });
+  }
+
   static createUser(
     username: string,
     email: string,
