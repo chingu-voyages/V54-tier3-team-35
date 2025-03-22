@@ -33,4 +33,4 @@
 
 ### Backend URL  
 Once running, the backend will be available at:  
-**[https://localhost:3000](https://localhost:3000)**  
+**[http://localhost:3000](http://localhost:3000)**  
