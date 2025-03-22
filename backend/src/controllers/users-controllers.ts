@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 import { validationResult } from "express-validator";
 import UserModel from "../models/users-models";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 class UserController {
   public registerUser(req: Request, res: Response): void {
@@ -29,22 +32,24 @@ class UserController {
   public loginUser(req: Request, res: Response): void {
     const { email, password } = req.body;
 
-    
-
     UserModel.fetchUserEmailAndConfirmPassword(email, password)
       .then((user) => {
         if (!user) {
           return res.status(401).json({ message: "Invalid credentials" });
         }
 
+        const secretKey = process.env.SECRET_KEY;
+        if (!secretKey) {
+          throw new Error(
+            "SECRET_KEY is not defined in the environment variables!"
+          );
+        }
         // Generate JWT token
-        const token = jwt.sign(
-          { id: user.id, email: user.email },
-          "your_secret_key",
-          { expiresIn: "1h" }
-        );
+        const token = jwt.sign({ id: user.id, email: user.email }, secretKey, {
+          expiresIn: "1h",
+        });
 
-        res.status(200).send({ message: "Login successful", token });
+        res.status(200).json({ message: "Login successful", token });
       })
       .catch((error) => {
         console.error("Login error:", error);
