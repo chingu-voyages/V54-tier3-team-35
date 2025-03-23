@@ -5,7 +5,7 @@ const LandingPage: React.FC = () => {
 
     const handleClick = () => {
         // Placeholder for user authentication check
-        const isLoggedIn = localStorage.getItem("token"); 
+        const isLoggedIn = localStorage.getItem("token");
 
         if (isLoggedIn) {
             navigate("/dashboard"); // Redirect to the dashboard if logged in
