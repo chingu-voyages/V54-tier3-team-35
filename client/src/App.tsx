@@ -1,9 +1,13 @@
-
+import LandingPage from "./pages/LandingPage"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   return (
-   <div className="flex justify-center items-center h-screen">
-       <h1 className="text-4xl text-blue-500">AI Helper Project</h1>
-   </div>
+    <Router>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      {/* Other routes can be added here */}
+    </Routes>
+  </Router>
   )
 }
 
