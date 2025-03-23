@@ -2,6 +2,8 @@ DROP DATABASE IF EXISTS database;
 
 CREATE DATABASE database;
 
+\c database;
+
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
