@@ -4,10 +4,7 @@ import UserModel from "../models/users-models";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 
-dotenv.config();
-
 class UserController {
-  
   public registerUser(req: Request, res: Response): void {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -43,7 +40,10 @@ class UserController {
           });
       })
       .catch((error) => {
-        console.error("Error checking email/username existence:", error.message);
+        console.error(
+          "Error checking email/username existence:",
+          error.message
+        );
         res.status(500).json({ message: "Server error" });
       });
   }
@@ -58,6 +58,7 @@ class UserController {
         }
 
         const secretKey = process.env.SECRET_KEY;
+        console.log(secretKey);
         if (!secretKey) {
           throw new Error(
             "SECRET_KEY is not defined in the environment variables!"
