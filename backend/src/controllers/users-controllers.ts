@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { validationResult } from "express-validator";
 import UserModel from "../models/users-models";
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
 
 class UserController {
   public registerUser(req: Request, res: Response): void {
