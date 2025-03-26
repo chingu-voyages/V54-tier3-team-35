@@ -24,10 +24,10 @@ class QueryModel {
         [userId, persona, context, task, response]
       )
       .then((result) => result.rows[0])
-      .catch((error) => {
-        console.error("Error inserting query:", error);
-        throw new Error("Database error");
-      });
+    //   .catch((error) => {
+    //     console.error("Error inserting query:", error);
+    //     throw new Error("Database error");
+    //   });
   }
 }
 
