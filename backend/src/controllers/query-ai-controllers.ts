@@ -16,13 +16,14 @@ class QueryAIController {
     }
 
     try {
-      const prompt: string = JSON.stringify(req.body);
+      const { persona, context, task, output, constraint } = req.body;
+      const prompt: string = JSON.stringify({persona, context, task, output, constraint});
       const response: string = await geminiService.generateResponse(prompt);
 
       res.status(StatusCodes.OK).json({ response: response });
 
     } catch (error) {
-      res.status(500).json({ error: error });
+      res.status(500).json({ error: "Error generating content, please try again" });
     }
   }
 }
