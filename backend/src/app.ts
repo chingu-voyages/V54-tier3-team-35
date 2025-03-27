@@ -1,6 +1,8 @@
 import express from "express";
 import usersRouter from "./routes/users-routes";
+import aiQueryRouter from "./routes/query-ai-routes";
 import cors from "cors";
+import usersMiddleware from "./middleware/users-middleware";
 
 const app = express();
 
@@ -20,5 +22,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/users", usersRouter);
+app.use("/query-ai", usersMiddleware.requireAuth, aiQueryRouter);
 
 export default app;
