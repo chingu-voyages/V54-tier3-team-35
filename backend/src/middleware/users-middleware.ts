@@ -56,6 +56,8 @@ class UserMiddleware {
     } catch (error) {
       res.status(403).json({ error: 'Invalid or expired token.' });
       return;
+    }
+  }
 
   public verifyToken(req: Request, res: Response, next: NextFunction): void {
     const token = req.header("Authorization")?.split(" ")[1];

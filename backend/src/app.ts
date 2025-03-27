@@ -1,5 +1,6 @@
 import express from "express";
 import usersRouter from "./routes/users-routes";
+import queriesRouter from "./routes/queries-routes";
 import aiQueryRouter from "./routes/query-ai-routes";
 import cors from "cors";
 import usersMiddleware from "./middleware/users-middleware";
