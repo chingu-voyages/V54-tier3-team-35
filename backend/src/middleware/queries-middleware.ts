@@ -5,7 +5,6 @@ import { Request, Response } from "express";
 class QueryMiddleware {
   public validateQueryInputs(): ValidationChain[] {
     return [
-      check("userId").isInt().withMessage("userId must be a valid integer"),
       check("persona")
         .isString()
         .isLength({ min: 1, max: 500 })
