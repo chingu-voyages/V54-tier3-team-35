@@ -14,26 +14,19 @@ class QueryController {
       });
   }
   public editQuery(req: Request, res: Response) {
+    const queryId: number = Number(req.params.id);  
+    const userId: number = Number(req.user?.id); 
+  
+    if (isNaN(queryId) || isNaN(userId)) {
+       res.status(400).json({ message: "Invalid queryId or userId" });
+    }
+  
     const { persona, context, task, response } = req.body;
-    const queryId: number = Number(req.body.queryId);
-    const userId: number = Number(req.user?.id);
-    console.log(`queryId: ${queryId}, userId: ${userId}`); // Debugging log
-    console.log(userId);
-
-    if (!queryId) {
-      res.status(400).json({ message: "Query ID is required" });
-    }
-
-    if (!userId) {
-      res.status(401).json({ message: "Unauthorised: No user ID found" });
-    }
-
-    //  TODO Check if the logged-in user is the owner of the query once load query is done.
-
+  
     QueryModel.updateQuery(queryId, userId, persona, context, task, response)
       .then((updatedQuery) => {
         if (!updatedQuery) {
-          return res.status(404).json({ message: "Query not found" });
+          return res.status(404).json({ message: "Query not found or Unauthorised." });
         }
         res.status(200).json({ message: "Query updated successfully", updatedQuery });
       })
@@ -44,8 +37,7 @@ class QueryController {
   }
 
   public deleteQuery(req: Request, res: Response) {
-    const queryId: number = Number(req.body.queryId || req.params.queryId);
-
+    const queryId: number = Number(req.params.id); 
     const userId: number = Number(req.user?.id);
     if (!queryId) {
       res.status(400).json({ message: "Query ID is required" });
