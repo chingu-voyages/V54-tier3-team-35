@@ -17,6 +17,8 @@
      DB_NAME=database
      DB_PORT=5432
      SECRET_KEY={some_secret_key}
+     GEMINI_API_KEY={some_secret_key}
+     GEMINI_MODEL=gemini-1.5-flash
      ```
 
 2. **Initialize the Database**  
