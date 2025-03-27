@@ -13,15 +13,36 @@ class UserController {
 
     const { username, email, password } = req.body;
 
-    UserModel.createUser(username, email, password)
-      .then((user) => {
-        res.status(201).json({
-          message: "User registered successfully",
-          user,
-        });
+    Promise.all([
+      UserModel.isUserEmailExists(email),
+      UserModel.isUsernameExists(username),
+    ])
+      .then(([emailExists, usernameExists]) => {
+        const errors = [];
+        if (emailExists) errors.push("Email already exists");
+        if (usernameExists) errors.push("Username already exists");
+
+        if (errors.length > 0) {
+          return res.status(400).json({ errors });
+        }
+
+        UserModel.createUser(username, email, password)
+          .then((user) => {
+            res.status(201).json({
+              message: "User registered successfully",
+              user,
+            });
+          })
+          .catch((error) => {
+            console.error("Error registering user:", error.message);
+            res.status(500).json({ message: "Server error" });
+          });
       })
       .catch((error) => {
-        console.error("Error registering user:", error.message);
+        console.error(
+          "Error checking email/username existence:",
+          error.message
+        );
         res.status(500).json({ message: "Server error" });
       });
   }
@@ -29,22 +50,25 @@ class UserController {
   public loginUser(req: Request, res: Response): void {
     const { email, password } = req.body;
 
-    
-
     UserModel.fetchUserEmailAndConfirmPassword(email, password)
       .then((user) => {
         if (!user) {
           return res.status(401).json({ message: "Invalid credentials" });
         }
 
+        const secretKey = process.env.SECRET_KEY;
+        
+        if (!secretKey) {
+          throw new Error(
+            "SECRET_KEY is not defined in the environment variables!"
+          );
+        }
         // Generate JWT token
-        const token = jwt.sign(
-          { id: user.id, email: user.email },
-          "your_secret_key",
-          { expiresIn: "1h" }
-        );
+        const token = jwt.sign({ id: user.id, email: user.email }, secretKey, {
+          expiresIn: "1h",
+        });
 
-        res.status(200).send({ message: "Login successful", token });
+        res.status(200).json({ message: "Login successful", token });
       })
       .catch((error) => {
         console.error("Login error:", error);
