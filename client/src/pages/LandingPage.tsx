@@ -72,11 +72,16 @@ const LandingPage: React.FC = () => {
     } catch (err: unknown) {
      
       if (axios.isAxiosError(err)) {
-       
-        if (err.response) {
+         console.log(err.response);
+        
+        if (err.response?.data.errors) {
+          
+          setErrorMessage(err.response?.data.errors[0].msg);
+        } else if (err.response?.data.message) {
           console.log(err.response.data.message);
-          setErrorMessage(err.response.data.message);
-        } else {
+          setErrorMessage(err.response?.data.message);
+
+        }else {
           console.log('Error without response:', err);
           setErrorMessage('An error occurred. Please try again.');
         }
@@ -123,8 +128,8 @@ const LandingPage: React.FC = () => {
   return (
     <div className="w-full bg-[#E9D4C3] h-full flex flex-col ">
       {/* Header Section */}
-      <div className="bg-[#F3E5D7] w-full py-6 text-center text-xl font-bold h-[20%]">Header</div>
-      <div className="w-full bg-[#E9D4C3] min-h-screen flex flex-col h-[60%]">
+      {/* <div className="bg-[#F3E5D7] w-full py-6 text-center text-xl font-bold h-[20%]">Header</div> */}
+      <div className="w-full bg-[#E9D4C3]  flex flex-col h-[70%]">
       <div className="w-full  flex flex-col md:flex-row justify-between py-10 px-20">
         {/* Left Section (Text + Form) */}
         <div className="w-1/3 text-center text-left min-w-[350px]">
