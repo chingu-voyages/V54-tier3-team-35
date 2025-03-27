@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google/generative-ai": "^0.24.0",
     "backend": "file:",
     "bcryptjs": "^3.0.2",
     "dotenv": "^16.4.7",
