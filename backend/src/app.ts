@@ -24,4 +24,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/users", usersRouter);
 app.use("/query-ai", usersMiddleware.requireAuth, aiQueryRouter);
 
+app.use("/queries", queriesRouter );
+
 export default app;

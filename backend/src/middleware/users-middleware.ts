@@ -4,9 +4,15 @@ import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { authUser } from "../interfaces/users.interfaces";
 
-declare module 'express' {
-  interface Request {
-    currentUser?: authUser; 
+import { config } from "../config/env";
+import { User } from "../models/users-models";
+
+declare global {
+  namespace Express {
+    interface Request {
+      user?: User;
+      currentUser?: authUser;
+    }
   }
 }
 
@@ -50,8 +56,31 @@ class UserMiddleware {
     } catch (error) {
       res.status(403).json({ error: 'Invalid or expired token.' });
       return;
+
+  public verifyToken(req: Request, res: Response, next: NextFunction): void {
+    const token = req.header("Authorization")?.split(" ")[1];
+  
+    if (!token) {
+      res.status(401).json({ message: "Authorisation token is required." });
+      return;
+    }
+
+    try {
+      const secretKey = config.SECRET_KEY;
+
+      if (!secretKey) {
+        res.status(500).json({ message: "Server error: Missing JWT secret key." });
+        return;
+      }
+
+      const decoded = jwt.verify(token, secretKey) as User; 
+      req.user = decoded;
+      next();
+    } catch (err) {
+      res.status(401).json({ message: "Invalid or expired token." });
     }
   }
 }
+
 
 export default new UserMiddleware();
