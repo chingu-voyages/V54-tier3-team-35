@@ -6,11 +6,25 @@ import usersMiddleware from "../middleware/users-middleware";
 const queriesRouter = express.Router();
 
 queriesRouter.post(
-  "/",
-  QueryMiddleware.validateQueryInputs(),
-  QueryMiddleware.handleValidationErrors,
-  QueryController.uploadQuery
+    "/",
+    QueryMiddleware.validateQueryInputs(),
+    QueryMiddleware.handleValidationErrors,
+    QueryController.uploadQuery
 );
+
+queriesRouter.patch(
+    "/:id",  
+    usersMiddleware.verifyToken,
+    QueryMiddleware.validateQueryInputs(),
+    QueryMiddleware.handleValidationErrors,
+    QueryController.editQuery
+  );
+  
+  queriesRouter.delete(
+    "/:id",
+    usersMiddleware.verifyToken,
+    QueryController.deleteQuery
+  );
 
 //just a test route that only authenticated users can see..
 queriesRouter.get("/protected", usersMiddleware.verifyToken, (req, res) => {
