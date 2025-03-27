@@ -57,7 +57,7 @@ class UserController {
         }
 
         const secretKey = process.env.SECRET_KEY;
-        console.log(secretKey);
+        
         if (!secretKey) {
           throw new Error(
             "SECRET_KEY is not defined in the environment variables!"
