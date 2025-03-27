@@ -29,6 +29,28 @@ class QueryModel {
     //     throw new Error("Database error");
     //   });
   }
+
+  static updateQuery(
+    queryId: number,
+    userId: number,
+    persona: string,
+    context: string,
+    task: string,
+    response: string | null
+  ): Promise<Query | null> {
+    return pool
+      .query(
+        "UPDATE queries SET persona = $1, context = $2, task = $3, response = $4 WHERE id = $5 AND user_id = $6 RETURNING *",
+        [persona, context, task, response, queryId, userId]
+      )
+      .then((result) => (result.rows.length > 0 ? result.rows[0] : null));
+  }
+
+  static deleteQuery(queryId: number, userId: number): Promise<boolean> {
+    return pool
+      .query("DELETE FROM queries WHERE id = $1 AND user_id = $2 RETURNING *", [queryId, userId])
+      .then((result) => (result.rows.length > 0 ? result.rows[0] : null));
+  }
 }
 
 export default QueryModel;
