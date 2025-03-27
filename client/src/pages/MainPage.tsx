@@ -28,6 +28,10 @@ export default function ContributionForm() {
   {
     title: "Frontend Developer Prompt3",
     result: "You are a junior frontend developer eager to build your first portfolio.",
+  },
+  {
+    title: "Frontend Developer Prompt4",
+    result: "You are a junior frontend developer eager to build your first portfolio.",
   },]);
   const [viewingHistory, setViewingHistory] = useState(false);
   const [resultTitle, setResultTitle] = useState("Result");
