@@ -17,6 +17,14 @@ class QueryMiddleware {
         .isString()
         .isLength({ min: 1, max: 1000 })
         .withMessage("task must be a non-empty string (max 1000 chars)"),
+      check("output")
+        .isString()
+        .isLength({ min: 1, max: 1000 })
+        .withMessage("output must be a non-empty string (max 1000 chars)"),
+      check("constraint")
+        .isString()
+        .isLength({ min: 1, max: 1000 })
+        .withMessage("constraint must be a non-empty string (max 1000 chars)"),
       check("response")
         .optional({ nullable: true })
         .isString()

@@ -4,7 +4,10 @@ CREATE DATABASE database;
 
 \c database;
 
+DROP TABLE IF EXISTS queries;
+
 DROP TABLE IF EXISTS users;
+
 
 CREATE TABLE users (
     id BIGSERIAL PRIMARY KEY,
@@ -20,6 +23,8 @@ CREATE TABLE queries (
     persona TEXT NOT NULL,
     context TEXT NOT NULL,
     task TEXT NOT NULL,
+    output_format TEXT NOT NULL,
+    constraint_scope TEXT NOT NULL,
     response TEXT,
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()

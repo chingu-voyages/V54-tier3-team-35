@@ -7,6 +7,8 @@ interface Query {
   persona: string;
   context: string;
   task: string;
+  output: string;
+  constraint: string;
   response: string | null;
 }
 
@@ -16,12 +18,14 @@ class QueryModel {
     persona: string,
     context: string,
     task: string,
+    output: string,
+    constraint: string,
     response: string | null
   ): Promise<Query> {
     return pool
       .query(
-        "INSERT INTO queries (user_id, persona, context, task, response) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-        [userId, persona, context, task, response]
+        "INSERT INTO queries (user_id, persona, context, task, output_format, constraint_scope, response) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+        [userId, persona, context, task, output, constraint, response]
       )
       .then((result) => result.rows[0]);
     //   .catch((error) => {
@@ -61,12 +65,14 @@ class QueryModel {
     persona: string,
     context: string,
     task: string,
+    output: string,
+    constraint: string,
     response: string | null
   ): Promise<Query | null> {
     return pool
       .query(
-        "UPDATE queries SET persona = $1, context = $2, task = $3, response = $4 WHERE id = $5 AND user_id = $6 RETURNING *",
-        [persona, context, task, response, queryId, userId]
+        "UPDATE queries SET persona = $1, context = $2, task = $3, output_format = $4, contraint_scope = $5, response = $6 WHERE id = $7 AND user_id = $8 RETURNING *",
+        [persona, context, task, output, constraint, response, queryId, userId]
       )
       .then((result) => (result.rows.length > 0 ? result.rows[0] : null));
   }

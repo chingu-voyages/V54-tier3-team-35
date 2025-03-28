@@ -3,18 +3,25 @@ import QueryModel from "../models/queries-models";
 
 class QueryController {
   public uploadQuery(req: Request, res: Response) {
-    const { persona, context, task, response } = req.body;
+    const { persona, context, task, output, constraint, response } = req.body;
 
     // Extracts user Id from  request header
     const userId: number = Number(req.user?.id);
-    console.log(userId);
 
     if (isNaN(userId)) {
       res.status(400).json({ message: "Invalid user ID" });
       return;
     }
 
-    QueryModel.postQuery(userId, persona, context, task, response)
+    QueryModel.postQuery(
+      userId,
+      persona,
+      context,
+      task,
+      output,
+      constraint,
+      response
+    )
       .then((query) => {
         res.status(201).json({ message: "Query uploaded succesfully", query });
       })
@@ -81,9 +88,18 @@ class QueryController {
       res.status(400).json({ message: "Invalid queryId or userId" });
     }
 
-    const { persona, context, task, response } = req.body;
+    const { persona, context, task, output, constraint, response } = req.body;
 
-    QueryModel.updateQuery(queryId, userId, persona, context, task, response)
+    QueryModel.updateQuery(
+      queryId,
+      userId,
+      persona,
+      context,
+      task,
+      output,
+      constraint,
+      response
+    )
       .then((updatedQuery) => {
         if (!updatedQuery) {
           return res

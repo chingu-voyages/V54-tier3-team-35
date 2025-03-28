@@ -50,7 +50,7 @@ class UserController {
   public loginUser(req: Request, res: Response): void {
     const { email, password } = req.body;
 
-    console.log(email, password);
+  
 
     UserModel.fetchUserEmailAndConfirmPassword(email, password)
       .then((user) => {
@@ -73,8 +73,6 @@ class UserController {
             expiresIn: "1h",
           }
         );
-        const decoded = jwt.decode(token);
-        console.log(decoded);
 
         res.status(200).json({ message: "Login successful", token });
       })
