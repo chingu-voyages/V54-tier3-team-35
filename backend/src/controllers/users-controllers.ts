@@ -50,6 +50,8 @@ class UserController {
   public loginUser(req: Request, res: Response): void {
     const { email, password } = req.body;
 
+    console.log(email, password);
+
     UserModel.fetchUserEmailAndConfirmPassword(email, password)
       .then((user) => {
         if (!user) {
@@ -57,16 +59,22 @@ class UserController {
         }
 
         const secretKey = process.env.SECRET_KEY;
-        
+
         if (!secretKey) {
           throw new Error(
             "SECRET_KEY is not defined in the environment variables!"
           );
         }
         // Generate JWT token
-        const token = jwt.sign({ id: user.id, email: user.email }, secretKey, {
-          expiresIn: "1h",
-        });
+        const token = jwt.sign(
+          { id: user.id, email: user.email, username: user.username },
+          secretKey,
+          {
+            expiresIn: "1h",
+          }
+        );
+        const decoded = jwt.decode(token);
+        console.log(decoded);
 
         res.status(200).json({ message: "Login successful", token });
       })
