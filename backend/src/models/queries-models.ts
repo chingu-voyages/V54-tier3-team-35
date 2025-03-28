@@ -71,7 +71,7 @@ class QueryModel {
   ): Promise<Query | null> {
     return pool
       .query(
-        "UPDATE queries SET persona = $1, context = $2, task = $3, output_format = $4, contraint_scope = $5, response = $6 WHERE id = $7 AND user_id = $8 RETURNING *",
+        "UPDATE queries SET persona = $1, context = $2, task = $3, output_format = $4, constraint_scope = $5, response = $6 WHERE id = $7 AND user_id = $8 RETURNING *",
         [persona, context, task, output, constraint, response, queryId, userId]
       )
       .then((result) => (result.rows.length > 0 ? result.rows[0] : null));
