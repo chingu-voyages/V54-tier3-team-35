@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/users", usersRouter);
-app.use("/query-ai", usersMiddleware.requireAuth, aiQueryRouter);
+app.use("/query-ai", usersMiddleware.verifyToken, aiQueryRouter);
 
 app.use("/queries", queriesRouter );
 
