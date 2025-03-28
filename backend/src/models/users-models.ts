@@ -9,33 +9,39 @@ export interface User {
 }
 
 class UserModel {
-
   static isUserEmailExists(email: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      pool.query('SELECT * FROM Users WHERE Email = $1', [email], (error, results) => {
-        if (error) {
-          return reject(error);
+      pool.query(
+        "SELECT * FROM Users WHERE Email = $1",
+        [email],
+        (error, results) => {
+          if (error) {
+            return reject(error);
+          }
+          if (results && results.rowCount != null) {
+            resolve(results.rowCount > 0);
+          } else {
+            reject(new Error("Invalid query result"));
+          }
         }
-        if (results && results.rowCount != null) {
-          resolve(results.rowCount > 0);
-        } else {
-          reject(new Error('Invalid query result'));
-        }
-      });
+      );
     });
   }
 
   static isUsernameExists(username: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      pool.query('SELECT * FROM Users WHERE Username = $1', [username], (error, results) => {
-        if (error) {
-          return reject(error);
+      pool.query(
+        "SELECT * FROM Users WHERE Username = $1",
+        [username],
+        (error, results) => {
+          if (error) {
+            return reject(error);
+          }
+          if (results && results.rowCount != null) {
+            resolve(results.rowCount > 0);
+          }
         }
-        if (results && results.rowCount != null) {
-
-        resolve(results.rowCount > 0); 
-        }
-      });
+      );
     });
   }
 
@@ -60,8 +66,12 @@ class UserModel {
       });
   }
 
-  static fetchUserEmailAndConfirmPassword(email:string, inputPassword:string): Promise<User | null> {
-    return pool.query('SELECT * FROM users WHERE email = $1', [email])
+  static fetchUserEmailAndConfirmPassword(
+    email: string,
+    inputPassword: string
+  ): Promise<User | null> {
+    return pool
+      .query("SELECT * FROM users WHERE email = $1", [email])
       .then((result) => {
         const user = result.rows[0];
         if (!user) return null; // User not found
@@ -71,8 +81,8 @@ class UserModel {
         });
       })
       .catch((error) => {
-        console.error('Database error:', error);
-        throw new Error('Database error');
+        console.error("Database error:", error);
+        throw new Error("Database error");
       });
   }
 }
