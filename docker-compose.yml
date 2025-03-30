@@ -12,6 +12,11 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./backend/src/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]  
+      interval: 5s
+      timeout: 10s
+      retries: 5
 
 
   backend:
@@ -27,6 +32,9 @@ services:
     volumes:
       - ./backend:/app
     command: npm run dev
+    depends_on:
+      db:
+        condition: service_healthy
 
   client:
     build:
