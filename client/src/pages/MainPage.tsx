@@ -2,25 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../consts";
+import { useAuth } from "../hooks/useAuth";
 
 interface HistoryItem {
   title: string;
   result: string;
   id: number;
 }
-
-const getUsernameFromToken = () => {
-  const token = localStorage.getItem("token");
-  if (!token) return null;
-
-  try {
-    const payload = JSON.parse(atob(token.split(".")[1]));
-    return payload.username || "Unknown User";
-  } catch (error) {
-    console.error("Invalid token:", error);
-    return null;
-  }
-};
 
 export default function ContributionForm() {
   const initialFormState = {
@@ -31,7 +19,7 @@ export default function ContributionForm() {
     constraint: "",
   };
 
-  const [username, setUsername] = useState<string | null>(null);
+  const { isLoggedIn, username, logout } = useAuth();
   const [showResult, setShowResult] = useState(false);
   const [result, setResult] = useState("");
   const [isResultFocused, setIsResultFocused] = useState(false);
@@ -58,14 +46,12 @@ export default function ContributionForm() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    const token = localStorage.getItem("token");
-    if (!token) {
+    if (!isLoggedIn) {
       navigate("/");
     } else {
-      setUsername(getUsernameFromToken());
       fetchHistory();
     }
-  }, [navigate]);
+  }, [navigate, isLoggedIn]);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -145,8 +131,7 @@ export default function ContributionForm() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    delete axios.defaults.headers.common["Authorization"];
+    logout();
     navigate("/");
   };
 
@@ -227,11 +212,12 @@ export default function ContributionForm() {
           )}
           <div className="w-full">
             <div
-              onClick={() => navigate("/")} // Navigates to the main page
+              onClick={() => navigate("/")}
               className="cursor-pointer"
             >
               <h2 className="font-bold text-lg mb-6">AskIQ</h2>
-            </div>            <ul className="space-y-4 overflow-y-auto min-h-[300px] lg:min-h-[80vh] md:min-h-[70vh] sm:min-h-[60vh] min-h-[90vh]">
+            </div>
+            <ul className="space-y-4 overflow-y-auto min-h-[300px] lg:min-h-[80vh] md:min-h-[70vh] sm:min-h-[60vh] min-h-[90vh]">
               {userHistory && userHistory.length > 0 ? (
                 userHistory.map((item: any, i: number) => (
                   <li
@@ -261,14 +247,11 @@ export default function ContributionForm() {
                       </svg>
                     </button>
                   </li>
-
-
                 ))
               ) : (
                 <li className="text-gray-400">No history found</li>
               )}
             </ul>
-
           </div>
           <div className="mt-10 space-y-2 text-center">
             <button className="bg-[#5C2E0C] text-white font-semibold px-4 py-2 rounded-md shadow hover:bg-[#4a250a] transition">
@@ -301,7 +284,6 @@ export default function ContributionForm() {
                 strokeWidth="2"
                 d="M6 18L18 6M6 6l12 12"
               />
-
             ) : (
               <path
                 stroke="currentColor"
@@ -317,7 +299,6 @@ export default function ContributionForm() {
 
       {/* Main Form */}
       <main className="flex-1 p-5 md:p-10 flex justify-center bg-main-bg bg-cover">
-
         {showResult ? (
           <div className="bg-white w-full max-w-2xl p-6 rounded-xl shadow text-center">
             <h2 className="font-bold text-xl mb-4">{resultTitle}</h2>
