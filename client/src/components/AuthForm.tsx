@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from ".././consts";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 interface AuthFormProps {
   isLogin: boolean;
@@ -9,8 +9,23 @@ interface AuthFormProps {
   login: (token: string) => void;
 }
 
+interface AuthResponse {
+  token: string;
+  errors?:
+    | string[]
+    | {
+        type: string;
+        value: string;
+        msg: string;
+        path: string;
+        location: string;
+      }[];
+  message?: string;
+}
+
 const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
   const [errorMessage, setErrorMessage] = useState("");
+  const [registrationComplete, setRegistrationComplete] = useState(false);
   const navigate = useNavigate();
 
   const [formDataRegister, setFormDataRegister] = useState({
@@ -27,11 +42,13 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
   const onChangeRegister = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormDataRegister({ ...formDataRegister, [e.target.name]: e.target.value });
     setErrorMessage("");
+    setRegistrationComplete(false);
   };
 
   const onChangeLogin = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormDataLogin({ ...formDataLogin, [e.target.name]: e.target.value });
     setErrorMessage("");
+    setRegistrationComplete(false);
   };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -39,27 +56,43 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
     try {
       let token: string;
       if (!isLogin) {
-        const { data } = await axios.post(`${API_URL}/users/register`, formDataRegister);
+        const { data } = await axios.post<AuthResponse>(`${API_URL}/users/register`, formDataRegister);
         token = data.token;
         setFormDataRegister({ username: "", email: "", password: "" });
+        setRegistrationComplete(true);
+        setIsLogin(true);
       } else {
-        const { data } = await axios.post(`${API_URL}/users/login`, formDataLogin);
+        const { data } = await axios.post<AuthResponse>(`${API_URL}/users/login`, formDataLogin);
         token = data.token;
         setFormDataLogin({ email: "", password: "" });
       }
       login(token);
       setErrorMessage("");
-      if (!isLogin){
-          navigate("/dashboard");
+      if (!isLogin) {
+        navigate("/?regSuccess=true");
       } else {
-          navigate("/");
+        navigate("/");
       }
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
-        if (err.response?.data.errors) {
-          setErrorMessage(err.response?.data.errors[0].msg);
-        } else if (err.response?.data.message) {
-          setErrorMessage(err.response?.data.message);
+        const axiosError = err as AxiosError;
+        if (axiosError.response?.data) {
+          const responseData = axiosError.response.data as AuthResponse;
+          if (responseData.errors && Array.isArray(responseData.errors)) {
+            if (typeof responseData.errors[0] === "string") {
+              setErrorMessage(responseData.errors.join("\n"));
+            } else {
+              const errorMessages = responseData.errors
+                .map((error) => (typeof error === "object" && error.msg) || "")
+                .filter(Boolean)
+                .join("\n");
+              setErrorMessage(errorMessages);
+            }
+          } else if (responseData.message) {
+            setErrorMessage(responseData.message);
+          } else {
+            setErrorMessage("An error occurred. Please try again.");
+          }
         } else {
           setErrorMessage("An error occurred. Please try again.");
         }
@@ -80,8 +113,23 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
     { placeholder: "password", type: "password", name: "password" },
   ];
 
+  useEffect(() => {
+    setErrorMessage("");
+  }, [isLogin]);
+
   return (
     <form className="flex flex-col" onSubmit={onSubmit}>
+      {errorMessage && (
+        <h3
+          className="errorMessageRegister"
+          style={{ whiteSpace: "pre-line", color: "red", marginBottom: "10px" }}
+        >
+          {errorMessage}
+        </h3>
+      )}
+      {registrationComplete && (
+        <h3 style={{ color: "green", marginBottom: "10px" }}>Registration complete! Please log in.</h3>
+      )}
       {!isLogin ? (
         <>
           {inputFieldsRegister.map((input) => (
@@ -116,9 +164,6 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
       <button type="submit" className="bg-[#6D4C41] text-white py-2 rounded hover:bg-[#5C3B31]">
         {isLogin ? "Sign In" : "Register"}
       </button>
-      <div id="container-password">
-        {errorMessage && <h3 className="errorMessageRegister">{errorMessage}</h3>}
-      </div>
     </form>
   );
 };
