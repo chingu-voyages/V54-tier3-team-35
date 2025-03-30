@@ -12,18 +12,27 @@ interface HistoryItem {
 export const useUserHistory = () => {
   const [userHistory, setUserHistory] = useState<HistoryItem[]>([]);
   const { isLoggedIn } = useAuth();
+  const [loading, setLoading] = useState(false);
 
   const fetchHistory = async () => {
+    setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(`${API_URL}/queries`, {
+      const response = await axios.get(`${API_URL}/queries?timestamp=${Date.now()}`, {
         headers: {
           Authorization: `Bearer ${token}`,
+          "Cache-Control": "no-cache",
+          "Pragma": "no-cache",
+          "Expires": "0",
         },
       });
+      console.log("fetchHistory: data received", response.data);
       setUserHistory(response.data.queries || []);
+      console.log("fetchHistory: userHistory updated", response.data.queries || []);
     } catch (error) {
       console.error("Failed to fetch user history:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -35,7 +44,7 @@ export const useUserHistory = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      setUserHistory(userHistory.filter((item) => item.id !== id));
+      setUserHistory((prevHistory) => prevHistory.filter((item) => item.id !== id));
     } catch (error) {
       console.error("Failed to delete history item:", error);
     }
@@ -49,5 +58,5 @@ export const useUserHistory = () => {
     }
   }, [isLoggedIn]);
 
-  return { userHistory, fetchHistory, handleDeleteHistory };
+  return { userHistory, fetchHistory, handleDeleteHistory, loading };
 };

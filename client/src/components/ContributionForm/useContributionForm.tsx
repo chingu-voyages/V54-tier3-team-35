@@ -63,7 +63,8 @@ export const useContributionForm = (fetchHistory: () => void) => {
 
       setResult(generatedResult);
       setResultTitle("Result");
-      fetchHistory();
+      await fetchHistory();
+      //console.log("handleSubmit: fetchHistory called");
     } catch (error) {
       console.error("Submission error:", error);
     }
@@ -73,7 +74,7 @@ export const useContributionForm = (fetchHistory: () => void) => {
     setShowResult(false);
   };
 
-  const handleNewPrompt = () => {
+  const handleNewPrompt = async () => {
     setFormData({
       persona: "",
       context: "",
@@ -85,6 +86,8 @@ export const useContributionForm = (fetchHistory: () => void) => {
     setViewingHistory(false);
     setResult("");
     setResultTitle("Result");
+    await fetchHistory();
+    //console.log("handleNewPrompt: fetchHistory called");
   };
 
   return {

@@ -11,7 +11,7 @@ export default function ContributionForm() {
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { fetchHistory } = useUserHistory();
+  const { fetchHistory, userHistory, handleDeleteHistory, loading } = useUserHistory();
   const {
     formData,
     showResult,
@@ -31,7 +31,7 @@ export default function ContributionForm() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     if (!isLoggedIn) {
-      navigate("/?authRequired=true")
+      navigate("/?authRequired=true");
     }
   }, [navigate, isLoggedIn]);
 
@@ -44,6 +44,9 @@ export default function ContributionForm() {
         setResultTitle={setResultTitle}
         setShowResult={setShowResult}
         setViewingHistory={setViewingHistory}
+        userHistory={userHistory}
+        handleDeleteHistory={handleDeleteHistory}
+        loading={loading}
       />
       <div className="md:hidden p-4 fixed top-4 left-4 z-40">
         <button

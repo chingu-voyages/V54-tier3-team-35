@@ -1,7 +1,7 @@
+// Sidebar.tsx
 import React, { Dispatch, SetStateAction } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
-import { useUserHistory } from "./useUserHistory";
 
 interface SidebarProps {
   isMobileMenuOpen: boolean;
@@ -10,6 +10,9 @@ interface SidebarProps {
   setResultTitle: Dispatch<SetStateAction<string>>;
   setShowResult: Dispatch<SetStateAction<boolean>>;
   setViewingHistory: Dispatch<SetStateAction<boolean>>;
+  userHistory: any[];
+  handleDeleteHistory: (id: number) => Promise<void>; // Added handleDeleteHistory prop
+  loading: boolean; // Added loading prop
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -19,10 +22,15 @@ const Sidebar: React.FC<SidebarProps> = ({
   setResultTitle,
   setShowResult,
   setViewingHistory,
+  userHistory,
+  handleDeleteHistory, // Destructured handleDeleteHistory prop
+  loading, // Destructured loading prop
 }) => {
   const { username, logout } = useAuth();
-  const { userHistory, handleDeleteHistory } = useUserHistory();
   const navigate = useNavigate();
+
+  console.log("Sidebar re-rendered");
+  console.log("Sidebar userHistory prop:", userHistory);
 
   const handleHistoryClick = (item: any) => {
     const title = `${item.persona || "Untitled"} - ${item.task || ""}`;
@@ -37,11 +45,13 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <aside
-      className={`md:w-1/5 shadow-md p-5 pt-10 flex justify-center bg-[#F3E5D7] ${isMobileMenuOpen
-        ? "fixed top-0 left-0 h-full w-full z-50 transform translate-x-0"
-        : "transform -translate-x-full md:translate-x-0"
-        } transition-transform duration-300 md:static ${isMobileMenuOpen ? "block" : "hidden md:block"
-        }`}
+      className={`md:w-1/5 shadow-md p-5 pt-10 flex justify-center bg-[#F3E5D7] ${
+        isMobileMenuOpen
+          ? "fixed top-0 left-0 h-full w-full z-50 transform translate-x-0"
+          : "transform -translate-x-full md:translate-x-0"
+      } transition-transform duration-300 md:static ${
+        isMobileMenuOpen ? "block" : "hidden md:block"
+      }`}
     >
       <div className="bg-white w-full flex flex-col justify-between max-w-2xl p-6 rounded-xl shadow">
         {isMobileMenuOpen && (
@@ -68,17 +78,16 @@ const Sidebar: React.FC<SidebarProps> = ({
           </div>
         )}
         <div className="w-full">
-          <div
-            onClick={() => navigate("/")}
-            className="cursor-pointer"
-          >
+          <div onClick={() => navigate("/")} className="cursor-pointer">
             <h2 className="font-bold text-lg mb-6">AskIQ</h2>
           </div>
           <ul className="space-y-4 overflow-y-auto min-h-[300px] lg:min-h-[80vh] md:min-h-[70vh] sm:min-h-[60vh] min-h-[90vh]">
-            {userHistory && userHistory.length > 0 ? (
-              userHistory.map((item: any, i: number) => (
+            {loading ? (
+              <li className="text-gray-400">Loading...</li>
+            ) : userHistory && userHistory.length > 0 ? (
+              userHistory.map((item: any) => (
                 <li
-                  key={i}
+                  key={item.id}
                   className="text-gray-700 hover:text-black cursor-pointer flex justify-between items-center"
                 >
                   <span onClick={() => handleHistoryClick(item)}>
