@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../../consts";
+import { useAuth } from "../../hooks/useAuth";
 
 interface HistoryItem {
   title: string;
@@ -10,6 +11,7 @@ interface HistoryItem {
 
 export const useUserHistory = () => {
   const [userHistory, setUserHistory] = useState<HistoryItem[]>([]);
+  const { isLoggedIn } = useAuth();
 
   const fetchHistory = async () => {
     try {
@@ -40,8 +42,12 @@ export const useUserHistory = () => {
   };
 
   useEffect(() => {
-    fetchHistory();
-  }, []);
+    if (isLoggedIn) {
+      fetchHistory();
+    } else {
+      setUserHistory([]);
+    }
+  }, [isLoggedIn]);
 
   return { userHistory, fetchHistory, handleDeleteHistory };
 };
