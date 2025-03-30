@@ -31,7 +31,7 @@ export default function ContributionForm() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     if (!isLoggedIn) {
-      navigate("/");
+      navigate("/?authRequired=true")
     }
   }, [navigate, isLoggedIn]);
 

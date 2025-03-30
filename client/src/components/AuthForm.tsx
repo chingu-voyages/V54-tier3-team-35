@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom"; // Import useLocation
 import { API_URL } from ".././consts";
 import axios, { AxiosError } from "axios";
 
@@ -27,6 +27,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [registrationComplete, setRegistrationComplete] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation(); // Get current location
 
   const [formDataRegister, setFormDataRegister] = useState({
     username: "",
@@ -38,6 +39,16 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
     email: "",
     password: "",
   });
+
+  const [loginMessage, setLoginMessage] = useState<string | null>(null); // State for login message
+
+  useEffect(() => {
+    if (location.search.includes("authRequired=true")) {
+      setLoginMessage("Please log in to access the requested page.");
+    } else {
+      setLoginMessage(null);
+    }
+  }, [location.search]);
 
   const onChangeRegister = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormDataRegister({ ...formDataRegister, [e.target.name]: e.target.value });
@@ -103,7 +114,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
   };
 
   const inputFieldsRegister = [
-    { placeholder: "username", name: "username", type: "string" },
+    { placeholder: "username", name: "username", type: "text" },
     { placeholder: "email", name: "email", type: "email" },
     { placeholder: "password", type: "password", name: "password" },
   ];
@@ -119,6 +130,11 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
 
   return (
     <form className="flex flex-col" onSubmit={onSubmit}>
+      {loginMessage && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+          <span className="block sm:inline"> {loginMessage}</span>
+        </div>
+      )}
       {errorMessage && (
         <h3
           className="errorMessageRegister"
