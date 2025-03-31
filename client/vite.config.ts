@@ -1,17 +1,32 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+const API_URL = "https://v54-tier3-team-35-bvab.onrender.com";
+
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: './',
   build: {
-    outDir: 'dist', // Ensure correct build output directory
+    outDir: './dist',
   },
   server: {
-    port: 5173,  // Default Vite port
-    open: true,  // Auto-open browser
-  },
-  preview: {
-    port: 4173, // Default preview port
-  },
+    port: 5173,
+    proxy: {
+      "/users": {
+        target: API_URL,
+        changeOrigin: true,
+        secure: false
+      },
+      "/queries": {
+        target: API_URL,
+        changeOrigin: true,
+        secure: false
+      },
+      "/query-ai": {
+        target: API_URL,
+        changeOrigin: true,
+        secure: false
+      }
+    }
+  }
 });
