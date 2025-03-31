@@ -13,8 +13,8 @@
 - [ ] I have reviewed the Git Workflow document for our team.
 
 
-## ⚠️ Important: Merge into `dev`
-- Base branch should be `dev` — **Do NOT merge directly into `main`.**
-- Only `dev` merges into `main` for releases at the end of the Sprint.
+## ⚠️ Important: Merge into `development`
+- Base branch should be `development` — **Do NOT merge directly into `main`.**
+- Only `development` merges into `main` for releases at the end of the Sprint.
 
 ## 💬 Additional Comments
