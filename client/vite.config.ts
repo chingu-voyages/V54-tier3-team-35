@@ -5,13 +5,9 @@ export default defineConfig({
   plugins: [react()],
   base: '/',
   build: {
-    outDir: 'dist', // Ensure correct build output directory
+    outDir: 'dist',
   },
   server: {
-    port: 5173,  // Default Vite port
-    open: true,  // Auto-open browser
-  },
-  preview: {
-    port: 4173, // Default preview port
-  },
+    port: 3000,
+  }
 });
