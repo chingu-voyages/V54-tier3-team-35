@@ -1,12 +1,6 @@
 import bcrypt from "bcryptjs";
 import { pool } from "../config/db";
-
-export interface User {
-  id: number;
-  username: string;
-  email: string;
-  password?: string;
-}
+import { User } from "../interfaces/user";
 
 class UserModel {
   static isUserEmailExists(email: string): Promise<boolean> {

@@ -35,9 +35,4 @@ queriesRouter.delete(
   QueryController.deleteQuery
 );
 
-//just a test route that only authenticated users can see..
-queriesRouter.get("/protected", usersMiddleware.verifyToken, (req, res) => {
-  res.json({ message: "Access granted", user: req.user });
-});
-
 export default queriesRouter;
