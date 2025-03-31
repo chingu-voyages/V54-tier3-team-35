@@ -1,4 +1,3 @@
-// Sidebar.tsx
 import React, { Dispatch, SetStateAction } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
