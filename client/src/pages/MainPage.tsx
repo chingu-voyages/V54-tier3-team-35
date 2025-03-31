@@ -17,13 +17,7 @@ export default function ContributionForm() {
   const [result, setResult] = useState("11111");
   const [isResultFocused, setIsResultFocused] = useState(false);
   const navigate = useNavigate();
-
-  interface HistoryItem {
-    title: string;
-    result: string;
-  }
-
-  const historyMock = [{
+  const [userHistory, setUserHistory] = useState([ {
     title: "Frontend Developer Prompt1",
     result: "You are a junior frontend developer eager to build your first portfolio.",
   },
@@ -38,9 +32,7 @@ export default function ContributionForm() {
   {
     title: "Frontend Developer Prompt4",
     result: "You are a junior frontend developer eager to build your first portfolio.",
-  }];
-
-  const [userHistory, setUserHistory] = useState<HistoryItem[]>([]);
+  },]);
   const [viewingHistory, setViewingHistory] = useState(false);
   const [resultTitle, setResultTitle] = useState("Result");
   const [formData, setFormData] = useState(initialFormState);
@@ -49,13 +41,9 @@ export default function ContributionForm() {
     const fetchHistory = async () => {
       try {
         const response = await axios.get(`${API_URL}/history`);
-        setUserHistory(response?.data?.history || [...historyMock]); // temporal while not querying the query history
-      } catch (error: unknown) {
-        if (error instanceof Error) {
-          console.error("Failed to fetch user history:", error.message);
-        } else {
-          console.error("Failed to fetch user history:", error);
-        }
+        setUserHistory(response.data.history);
+      } catch (error) {
+        console.error("Failed to fetch user history:", error);
       }
     };
 
