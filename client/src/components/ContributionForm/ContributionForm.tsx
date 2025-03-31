@@ -26,6 +26,8 @@ export default function ContributionForm() {
     setResultTitle,
     setShowResult,
     setViewingHistory,
+    error,
+    validationErrors,
   } = useContributionForm(fetchHistory);
 
   useEffect(() => {
@@ -93,7 +95,8 @@ export default function ContributionForm() {
             onSubmit={handleSubmit}
             className="bg-white w-full max-w-2xl p-6 rounded-xl space-y-6 shadow"
           >
-            <FormFields formData={formData} handleChange={handleChange} />
+            <FormFields formData={formData} handleChange={handleChange} validationErrors={validationErrors}/>
+            {error && <p className="text-red-500">{error}</p>}
             <div className="flex justify-center">
               <button
                 type="submit"
