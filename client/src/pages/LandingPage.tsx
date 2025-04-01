@@ -61,6 +61,12 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
 
+        <div className="w-full max-w-md mt-5">
+            <img src="/mobile-gif.gif" alt="Mobile GIF" className="block md:hidden" />
+            <GifAnimation />
+          </div>
+        </div>
+
         <div className="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center relative">
           <div className="w-full max-w-md">
             <img
@@ -79,7 +85,6 @@ const LandingPage: React.FC = () => {
 
       {/* ✅ Correctly using GifAnimation component */}
       <div className="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center relative">
-        <GifAnimation />
       </div>
     </div>
   );
