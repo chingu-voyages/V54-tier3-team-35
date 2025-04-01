@@ -77,12 +77,15 @@ const LandingPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Here is where you add the GifAnimation component to display the GIF */}
-      <div className="w-full flex justify-center mt-8">
-        <GifAnimation /> {/* The GIF will appear here */}
+      <div className="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center relative">
+        <div className="w-full max-w-md">
+          {/* Mobile GIF */}
+          <img src="/assets/mobile-gif.gif" alt="Mobile GIF" className="block md:hidden" />
+    
+          {/* Desktop GIF */}
+          <img src="/assets/desktop-gif.gif" alt="Desktop GIF" className="hidden md:block" />
+        </div>
       </div>
-
-      <div className="bg-[#F3E5D7] w-full py-6 text-center text-xl font-bold">Footer</div>
     </div>
   );
 };
