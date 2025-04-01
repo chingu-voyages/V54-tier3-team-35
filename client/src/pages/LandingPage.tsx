@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import AuthForm from "../components/AuthForm";
-import GifAnimation from "../components/GifAnimation"; // Ensure correct import path
+import GifAnimation from '../components/gif_animation';  // Adjusted path
 
 const LandingPage: React.FC = () => {
   const { isLoggedIn, username, logout, login } = useAuth();
@@ -59,10 +59,9 @@ const LandingPage: React.FC = () => {
               Gemini AI Chat App is an intelligent chatbot platform that allows users to ask questions and receive real-time responses in a conversational format. Designed to enhance productivity and streamline information retrieval...
             </p>
           </div>
-        </div>
-
-        <div className="w-full max-w-md mt-5">
+          <div className="w-full max-w-md mt-5">
             <img src="/mobile-gif.gif" alt="Mobile GIF" className="block md:hidden" />
+
             <GifAnimation />
           </div>
         </div>
@@ -83,8 +82,14 @@ const LandingPage: React.FC = () => {
         </div>
       </div>
 
-      {/* ✅ Correctly using GifAnimation component */}
       <div className="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center relative">
+        <div className="w-full max-w-md">
+          {/* Mobile GIF */}
+          <img src="/assets/mobile-gif.gif" alt="Mobile GIF" className="block md:hidden" />
+    
+          {/* Desktop GIF */}
+          <img src="/assets/desktop-gif.gif" alt="Desktop GIF" className="hidden md:block" />
+        </div>
       </div>
     </div>
   );
