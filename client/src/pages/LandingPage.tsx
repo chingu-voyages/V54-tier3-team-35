@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import AuthForm from "../components/AuthForm";
-import GifAnimation from '../components/gif_animation';  // Adjusted path
+import GifAnimation from '../components/gif_animation'; 
 
 const LandingPage: React.FC = () => {
   const { isLoggedIn, username, logout, login } = useAuth();
@@ -79,16 +79,6 @@ const LandingPage: React.FC = () => {
               className="rounded-lg shadow-lg w-full"
             />
           </div>
-        </div>
-      </div>
-
-      <div className="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center relative">
-        <div className="w-full max-w-md">
-          {/* Mobile GIF */}
-          <img src="/assets/mobile-gif.gif" alt="Mobile GIF" className="block md:hidden" />
-    
-          {/* Desktop GIF */}
-          <img src="/assets/desktop-gif.gif" alt="Desktop GIF" className="hidden md:block" />
         </div>
       </div>
     </div>
