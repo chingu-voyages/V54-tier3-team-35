@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import AuthForm from "../components/AuthForm";
-import GifAnimation from "../components/GifAnimation"; // Adjusted import path (capitalized G)
+import GifAnimation from "../components/GifAnimation"; // Ensure correct import path
 
 const LandingPage: React.FC = () => {
   const { isLoggedIn, username, logout, login } = useAuth();
@@ -77,7 +77,7 @@ const LandingPage: React.FC = () => {
         </div>
       </div>
 
-      {/* ✅ Correctly using the GifAnimation component */}
+      {/* ✅ Correctly using GifAnimation component */}
       <div className="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center relative">
         <GifAnimation />
       </div>
