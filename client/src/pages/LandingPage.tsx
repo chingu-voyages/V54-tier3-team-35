@@ -80,10 +80,10 @@ const LandingPage: React.FC = () => {
       <div className="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center relative">
         <div className="w-full max-w-md">
           {/* Mobile GIF */}
-          <img src="/assets/mobile-gif.gif" alt="Mobile GIF" className="block md:hidden" />
+          <img src="client/public/gif_animation.gif" alt="Mobile GIF" className="block md:hidden" />
     
           {/* Desktop GIF */}
-          <img src="/assets/desktop-gif.gif" alt="Desktop GIF" className="hidden md:block" />
+          <img src="client/public/gif_animation.gif" alt="Desktop GIF" className="hidden md:block" />
         </div>
       </div>
     </div>
