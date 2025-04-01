@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import AuthForm from "../components/AuthForm";
+import GifAnimation from '../components/gif_animation';  // Adjusted path
 
 const LandingPage: React.FC = () => {
   const { isLoggedIn, username, logout, login } = useAuth(); 
@@ -74,6 +75,11 @@ const LandingPage: React.FC = () => {
             />
           </div>
         </div>
+      </div>
+
+      {/* Here is where you add the GifAnimation component to display the GIF */}
+      <div className="w-full flex justify-center mt-8">
+        <GifAnimation /> {/* The GIF will appear here */}
       </div>
 
       <div className="bg-[#F3E5D7] w-full py-6 text-center text-xl font-bold">Footer</div>
