@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import AuthForm from "../components/AuthForm";
-import GifAnimation from '../components/gif_animation';  // Adjusted path
+import GifAnimation from "../components/GifAnimation"; // Adjusted import path (capitalized G)
 
 const LandingPage: React.FC = () => {
-  const { isLoggedIn, username, logout, login } = useAuth(); 
+  const { isLoggedIn, username, logout, login } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
 
   const navigate = useNavigate();
@@ -77,14 +77,9 @@ const LandingPage: React.FC = () => {
         </div>
       </div>
 
+      {/* ✅ Correctly using the GifAnimation component */}
       <div className="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center relative">
-        <div className="w-full max-w-md">
-          {/* Mobile GIF */}
-          <img src="client/public/gif_animation.gif" alt="Mobile GIF" className="block md:hidden" />
-    
-          {/* Desktop GIF */}
-          <img src="client/public/gif_animation.gif" alt="Desktop GIF" className="hidden md:block" />
-        </div>
+        <GifAnimation />
       </div>
     </div>
   );
