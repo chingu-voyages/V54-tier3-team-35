@@ -4,7 +4,7 @@ import React from 'react';
 const GifAnimation: React.FC = () => {
   return (
     <div className="gif-container">
-      <img src="/your-animation.gif" alt="App Demo" className="responsive-gif" />
+      <img src=".../public/gif_animation.gif" alt="App Demo" className="responsive-gif" />
     </div>
   );
 };
