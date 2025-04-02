@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { getFilteredHistory } from "../../utils/utils";
+import { FormState } from "./useContributionForm";
 
+interface HistoryItem {
+  title: string;
+  result: string;
+  id: number;
+}
 interface FormFieldsProps {
-  formData: any;
+  formData: FormState;
+  setFormData: React.Dispatch<React.SetStateAction<FormState>>;
   handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  validationErrors?: { type: string; msg: string; path: string; location: string; value: string }[];
+  validationErrors?: {
+    type: string;
+    msg: string;
+    path: string;
+    location: string;
+    value: string;
+  }[];
+  userHistory: HistoryItem[];
+  fromEdit: boolean;
+  result: string;
 }
 
-const FormFields: React.FC<FormFieldsProps> = ({ formData, handleChange, validationErrors = [] }) => {
+const FormFields: React.FC<FormFieldsProps> = ({
+  formData,
+  handleChange,
+  validationErrors = [],
+  fromEdit,
+  userHistory,
+  result,
+  setFormData,
+}) => {
   const fields = [
     {
       name: "persona",
@@ -40,23 +65,36 @@ const FormFields: React.FC<FormFieldsProps> = ({ formData, handleChange, validat
     },
   ];
 
+  const filteredHistory = getFilteredHistory(userHistory, result);
+
+  useEffect(() => {
+    if (fromEdit && filteredHistory) {
+      setFormData({ ...filteredHistory }); // Ensure state is updated with history
+    }
+  }, []);
+
+  console.log(filteredHistory, "updated");
   return (
     <>
       {fields.map(({ name, label, description }) => {
-        const fieldError = Array.isArray(validationErrors) ? validationErrors?.find((error) => error.path === name) : undefined;
+        const fieldError = Array.isArray(validationErrors)
+          ? validationErrors?.find((error) => error.path === name)
+          : undefined;
         return (
           <div key={name}>
             <label className="block font-semibold mb-1">{label}</label>
-            <p className="text-sm text-gray-500 mb-2 italic">
-              {description}
-            </p>
+            <p className="text-sm text-gray-500 mb-2 italic">{description}</p>
             <textarea
               name={name}
               value={formData[name as keyof typeof formData]}
               onChange={handleChange}
-              className={`w-full p-4 border ${fieldError ? "border-red-500" : "border-gray-200"} rounded-xl resize-none h-24 focus:outline-none focus:ring-2 focus:ring-orange-300`}
+              className={`w-full p-4 border ${
+                fieldError ? "border-red-500" : "border-gray-200"
+              } rounded-xl resize-none h-24 focus:outline-none focus:ring-2 focus:ring-orange-300`}
             />
-            {fieldError && <p className="text-red-500 text-xs mt-1">{fieldError.msg}</p>}
+            {fieldError && (
+              <p className="text-red-500 text-xs mt-1">{fieldError.msg}</p>
+            )}
           </div>
         );
       })}

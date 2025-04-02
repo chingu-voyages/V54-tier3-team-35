@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { API_URL } from "../../consts";
 
-interface FormState {
+export interface FormState {
   persona: string;
   context: string;
   task: string;
@@ -12,7 +12,13 @@ interface FormState {
 
 interface ErrorResponseData {
   message?: string;
-  errors?: { type: string; msg: string; path: string; location: string; value: string }[];
+  errors?: {
+    type: string;
+    msg: string;
+    path: string;
+    location: string;
+    value: string;
+  }[];
 }
 
 export const useContributionForm = (fetchHistory: () => void) => {
@@ -29,8 +35,15 @@ export const useContributionForm = (fetchHistory: () => void) => {
   const [viewingHistory, setViewingHistory] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [validationErrors, setValidationErrors] = useState<
-    { type: string; msg: string; path: string; location: string; value: string }[]
+    {
+      type: string;
+      msg: string;
+      path: string;
+      location: string;
+      value: string;
+    }[]
   >([]);
+  const [fromEdit, setFromEdit] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -81,7 +94,7 @@ export const useContributionForm = (fetchHistory: () => void) => {
       console.error("Submission error:", error);
       if (axios.isAxiosError(error) && error.response && error.response.data) {
         const errorData = error.response.data as ErrorResponseData;
-        if(errorData.errors){
+        if (errorData.errors) {
           setValidationErrors(errorData.errors);
           setShowResult(false);
         } else {
@@ -92,7 +105,11 @@ export const useContributionForm = (fetchHistory: () => void) => {
         const axiosError = error as AxiosError;
         if (axiosError.response) {
           const errorData = axiosError.response.data as ErrorResponseData;
-          setError(`Server error: ${errorData.message || axiosError.response.statusText}`);
+          setError(
+            `Server error: ${
+              errorData.message || axiosError.response.statusText
+            }`
+          );
         } else if (axiosError.request) {
           setError("Network error: Could not connect to server.");
         } else {
@@ -108,6 +125,7 @@ export const useContributionForm = (fetchHistory: () => void) => {
     setShowResult(false);
     setError(null);
     setValidationErrors([]);
+    setFromEdit(true);
   };
 
   const handleNewPrompt = async () => {
@@ -143,5 +161,7 @@ export const useContributionForm = (fetchHistory: () => void) => {
     setViewingHistory,
     error,
     validationErrors,
+    fromEdit,
+    setFormData,
   };
 };
