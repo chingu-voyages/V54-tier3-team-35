@@ -14,6 +14,7 @@ app.use(
       "http://localhost:3000",
       "http://localhost:5173",
       "http://54.246.48.7/",
+      config.CLIENT_URL
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
