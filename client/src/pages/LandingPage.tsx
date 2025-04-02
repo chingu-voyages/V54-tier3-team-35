@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import AuthForm from "../components/AuthForm";
+import GifAnimation from '../components/gif_animation'; 
 
 const LandingPage: React.FC = () => {
-  const { isLoggedIn, username, logout, login } = useAuth(); 
+  const { isLoggedIn, username, logout, login } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
 
   const navigate = useNavigate();
@@ -58,6 +59,11 @@ const LandingPage: React.FC = () => {
               Gemini AI Chat App is an intelligent chatbot platform that allows users to ask questions and receive real-time responses in a conversational format. Designed to enhance productivity and streamline information retrieval...
             </p>
           </div>
+          <div className="w-full max-w-md mt-5">
+            <img src="/mobile_gif.gif" alt="Mobile GIF" className="block md:hidden" />
+
+            <GifAnimation />
+          </div>
         </div>
 
         <div className="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center relative">
@@ -75,8 +81,6 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <div className="bg-[#F3E5D7] w-full py-6 text-center text-xl font-bold">Footer</div>
     </div>
   );
 };
