@@ -19,6 +19,7 @@ class QueryAIController {
       const { persona, context, task, output, constraint } = req.body;
       const prompt: string = JSON.stringify({persona, context, task, output, constraint});
       const response: string = await geminiService.generateResponse(prompt);
+      console.log(response)
 
       res.status(StatusCodes.OK).json({ response: response });
 

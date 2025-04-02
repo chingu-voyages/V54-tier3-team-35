@@ -2,6 +2,14 @@ import React, { Dispatch, SetStateAction } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 
+interface FormState {
+  persona: string;
+  context: string;
+  task: string;
+  output: string;
+  constraint: string;
+}
+
 interface SidebarProps {
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
@@ -12,6 +20,7 @@ interface SidebarProps {
   userHistory: any[];
   handleDeleteHistory: (id: number) => Promise<void>; // Added handleDeleteHistory prop
   loading: boolean; // Added loading prop
+  formData: FormState;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({

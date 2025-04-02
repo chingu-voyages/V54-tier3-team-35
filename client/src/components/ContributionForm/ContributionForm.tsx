@@ -11,7 +11,8 @@ export default function ContributionForm() {
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { fetchHistory, userHistory, handleDeleteHistory, loading } = useUserHistory();
+  const { fetchHistory, userHistory, handleDeleteHistory, loading } =
+    useUserHistory();
   const {
     formData,
     showResult,
@@ -28,6 +29,8 @@ export default function ContributionForm() {
     setViewingHistory,
     error,
     validationErrors,
+    fromEdit,
+    setFormData,
   } = useContributionForm(fetchHistory);
 
   useEffect(() => {
@@ -49,6 +52,7 @@ export default function ContributionForm() {
         userHistory={userHistory}
         handleDeleteHistory={handleDeleteHistory}
         loading={loading}
+        formData={formData}
       />
       <div className="md:hidden p-4 fixed top-4 left-4 z-40">
         <button
@@ -95,7 +99,15 @@ export default function ContributionForm() {
             onSubmit={handleSubmit}
             className="bg-white w-full max-w-2xl p-6 rounded-xl space-y-6 shadow"
           >
-            <FormFields formData={formData} handleChange={handleChange} validationErrors={validationErrors}/>
+            <FormFields
+              result={result}
+              fromEdit={fromEdit}
+              userHistory={userHistory}
+              formData={formData}
+              setFormData={setFormData}
+              handleChange={handleChange}
+              validationErrors={validationErrors}
+            />
             {error && <p className="text-red-500">{error}</p>}
             <div className="flex justify-center">
               <button
