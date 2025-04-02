@@ -209,7 +209,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
         </>
       )}
       <button disabled={isLoading} type="submit" className="bg-[#6D4C41] text-white py-2 rounded hover:bg-[#5C3B31]">
-        {isLogin ? isLoading ? "Signing in ..." : "Sign In" : isLoading ? "Registring ..." : "Register"}
+        {isLogin ? isLoading ? "Signing in ..." : "Sign In" : isLoading ? "Registering ..." : "Register"}
       </button>
     </form>
   );

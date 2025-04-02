@@ -2,12 +2,13 @@
 import { Pool } from 'pg';
 
 let pool: Pool;
+console.log('NODE_ENV:', process.env.NODE_ENV === "production");
 if (process.env.NODE_ENV === 'production') {
   pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: false,
   });
-} else {
+} else if (process.env.NODE_ENV === 'development') {
   pool = new Pool({  
 
     user: process.env.DB_USER,
