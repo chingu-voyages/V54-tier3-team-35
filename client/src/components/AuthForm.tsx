@@ -26,6 +26,7 @@ interface AuthResponse {
 const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [registrationComplete, setRegistrationComplete] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation(); // Get current location
 
@@ -64,17 +65,46 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       let token: string;
       if (!isLogin) {
+        if (!formDataRegister.username) {
+          setErrorMessage("Please fill in the username field.");
+          setIsLoading(false);
+          return;
+        }
+        if (!formDataRegister.email) {
+          setErrorMessage("Please fill in the email field.");
+          setIsLoading(false);
+          return;
+        }
+        if (!formDataRegister.password) {
+          setErrorMessage("Please fill in the password field.");
+          setIsLoading(false);
+          return;
+        }
+     
         const { data } = await axios.post<AuthResponse>(`${API_URL}/users/register`, formDataRegister);
         token = data.token;
+        setIsLoading(false);
         setFormDataRegister({ username: "", email: "", password: "" });
         setRegistrationComplete(true);
         setIsLogin(true);
       } else {
+
+        if (!formDataLogin.email) {
+          setErrorMessage("Please fill in the email field.");
+          return;
+        }
+        if (!formDataLogin.password) {
+          setErrorMessage("Please fill in the password field.");
+          return;
+        }
+
         const { data } = await axios.post<AuthResponse>(`${API_URL}/users/login`, formDataLogin);
         token = data.token;
+        setIsLoading(false);
         setFormDataLogin({ email: "", password: "" });
       }
       login(token);
@@ -85,6 +115,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
         navigate("/");
       }
     } catch (err: unknown) {
+      setIsLoading(false);
       if (axios.isAxiosError(err)) {
         const axiosError = err as AxiosError;
         if (axiosError.response?.data) {
@@ -177,8 +208,8 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
           ))}
         </>
       )}
-      <button type="submit" className="bg-[#6D4C41] text-white py-2 rounded hover:bg-[#5C3B31]">
-        {isLogin ? "Sign In" : "Register"}
+      <button disabled={isLoading} type="submit" className="bg-[#6D4C41] text-white py-2 rounded hover:bg-[#5C3B31]">
+        {isLogin ? isLoading ? "Signing in ..." : "Sign In" : isLoading ? "Registering ..." : "Register"}
       </button>
     </form>
   );
