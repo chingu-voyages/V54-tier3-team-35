@@ -60,7 +60,7 @@ const LandingPage: React.FC = () => {
             </p>
           </div>
           <div className="w-full max-w-md mt-5">
-            <img src="/mobile-gif.gif" alt="Mobile GIF" className="block md:hidden" />
+            <img src="/mobile_gif.gif" alt="Mobile GIF" className="block md:hidden" />
 
             <GifAnimation />
           </div>
