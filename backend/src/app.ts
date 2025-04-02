@@ -13,7 +13,7 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:5173",
-      config.CLIENT_URL,
+      "http://54.246.48.7/",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
@@ -23,9 +23,9 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/users", usersRouter);
-app.use("/query-ai", usersMiddleware.verifyToken, aiQueryRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/query-ai", usersMiddleware.verifyToken, aiQueryRouter);
 
-app.use("/queries", queriesRouter );
+app.use("/api/queries", queriesRouter );
 
 export default app;

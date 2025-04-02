@@ -14,10 +14,10 @@ router.post(
   "/register",
   [
     check("email").isEmail().withMessage("Please provide a valid email"),
+    check("username").not().isEmpty().withMessage("Username is required"),
     check("password")
       .isLength({ min: 6 })
       .withMessage("Password must be at least 6 characters long"),
-    check("username").not().isEmpty().withMessage("Username is required"),
   ],
   UserController.registerUser
 );
