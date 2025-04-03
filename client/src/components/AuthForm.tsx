@@ -95,10 +95,12 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
 
         if (!formDataLogin.email) {
           setErrorMessage("Please fill in the email field.");
+          setIsLoading(false);
           return;
         }
         if (!formDataLogin.password) {
           setErrorMessage("Please fill in the password field.");
+          setIsLoading(false);
           return;
         }
 
