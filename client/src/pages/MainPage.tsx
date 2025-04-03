@@ -1,5 +1,5 @@
 import React from "react";
-import ContributionForm from "../components/ContributionForm/ContributionForm";
+import ContributionForm from "@components/ContributionForm/ContributionForm";
 
 const MainPage: React.FC = () => {
   return (

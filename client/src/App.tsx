@@ -7,7 +7,6 @@ function App() {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/dashboard" element={<MainPage />} />
-      {/* Other routes can be added here */}
     </Routes>
   </Router>
   )

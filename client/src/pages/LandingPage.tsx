@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
-import AuthForm from "../components/AuthForm";
-import GifAnimation from '../components/gif_animation'; 
+import { useAuth } from '@hooks/useAuth';  
+import AuthForm from '@components/AuthForm';  
+import GifAnimation from '@components/gif_animation'; 
 
 const LandingPage: React.FC = () => {
   const { isLoggedIn, username, logout, login } = useAuth();

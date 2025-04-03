@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { getFilteredHistory } from "../../utils/utils";
-import { FormState } from "./useContributionForm";
+import { getFilteredHistory } from "@utils/utils";
+import { FormState } from "@components/ContributionForm/useContributionForm";
 
 interface HistoryItem {
   title: string;

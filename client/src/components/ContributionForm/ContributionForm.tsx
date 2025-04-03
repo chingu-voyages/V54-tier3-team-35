@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "@hooks/useAuth";
 import { useContributionForm } from "./useContributionForm";
 import { useUserHistory } from "./useUserHistory";
-import Sidebar from "./Sidebar";
-import FormFields from "./FormFields";
-import ResultDisplay from "./ResultDisplay";
+import Sidebar from "@components/ContributionForm/Sidebar";
+import FormFields from "@components/ContributionForm/FormFields";
+import ResultDisplay from "@components/ContributionForm/ResultDisplay";
 
 export default function ContributionForm() {
   const { isLoggedIn } = useAuth();

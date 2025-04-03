@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../../consts";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "@hooks/useAuth";
 
 interface HistoryItem {
   title: string;
