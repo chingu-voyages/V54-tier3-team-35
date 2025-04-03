@@ -53,7 +53,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <aside
-      className={`md:w-1/5 shadow-md p-5 pt-10 flex justify-center bg-[#F3E5D7] ${
+      className={`md:w-1/5  p-5 pt-10 flex justify-center bg-[#e4f1f1] ${
         isMobileMenuOpen
           ? "fixed top-0 left-0 h-full w-full z-50 transform translate-x-0"
           : "transform -translate-x-full md:translate-x-0"
@@ -87,7 +87,9 @@ const Sidebar: React.FC<SidebarProps> = ({
         )}
         <div className="w-full">
           <div onClick={() => navigate("/")} className="cursor-pointer">
-            <h2 className="font-bold text-lg mb-6">AskIQ</h2>
+            <h2 className="font-bold text-3xl mb-6 hover:text-[#4a250a]">
+              AskIQ
+            </h2>
           </div>
           <ul className="space-y-4 overflow-y-auto min-h-[300px] lg:min-h-[80vh] md:min-h-[70vh] sm:min-h-[60vh] min-h-[90vh]">
             {loading ? (
