@@ -1,6 +1,5 @@
 import format from "pg-format";
 import { pool } from "../config/db";
-import { promises } from "dns";
 import bcrypt from "bcryptjs";
 
 interface User {
