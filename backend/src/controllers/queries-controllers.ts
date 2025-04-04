@@ -72,7 +72,7 @@ class QueryController {
         }
         res
           .status(200)
-          .json({ message: "User Query fetched succesfully", query });
+          .json({ message: "User Query fetched successfully", query });
       })
       .catch((error) => {
         console.error("Error fetching Query:", error.message);
