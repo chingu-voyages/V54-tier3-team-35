@@ -26,16 +26,15 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({
         tabIndex={0}
         onFocus={() => setIsResultFocused(true)}
         onBlur={() => setIsResultFocused(false)}
-        className={`w-full p-4 border rounded-lg mb-6 transition-all duration-300 overflow-y-auto max-h-[60vh] min-h-24 leading-relaxed ${isResultFocused
-          ? "border-blue-400 ring-2 ring-blue-200"
-          : "border-gray-300"
-          }`}
+        className={`w-full p-4 border rounded-lg mb-6 transition-all duration-300 overflow-y-auto max-h-[60vh] min-h-24 leading-relaxed ${
+          isResultFocused
+            ? "border-blue-400 ring-2 ring-blue-200"
+            : "border-gray-300"
+        }`}
       >
         {result ? (
           <div className="break-words text-base sm:text-lg lg:text-base">
-            <ReactMarkdown>
-              {result}
-            </ReactMarkdown>
+            <ReactMarkdown>{result}</ReactMarkdown>
           </div>
         ) : (
           <div className="flex items-center justify-center h-full">
@@ -46,7 +45,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({
       <div className="space-y-2">
         <button
           onClick={handleEdit}
-          className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-md shadow hover:bg-blue-700 transition w-full"
+          className="bg-[#6D4C41] text-white font-semibold px-6 py-2 rounded-md shadow hover:bg-[#5C3B31] transition w-full"
         >
           Edit Input
         </button>
