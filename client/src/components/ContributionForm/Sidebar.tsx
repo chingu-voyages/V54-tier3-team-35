@@ -53,7 +53,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <aside
-      className={`md:w-1/5  p-3 pt-10 flex justify-center bg-[#f1e9d7] ${isMobileMenuOpen
+      className={`md:w-1/5  p-3 pt-10 flex justify-center bg-[#e4f1f1] ${isMobileMenuOpen
         ? "fixed top-0 left-0 h-full w-full z-50 transform translate-x-0"
         : "transform -translate-x-full md:translate-x-0"
         } transition-transform duration-300 md:static ${isMobileMenuOpen ? "block" : "hidden md:block"
