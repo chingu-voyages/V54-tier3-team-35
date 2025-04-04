@@ -21,7 +21,7 @@ const router = express.Router();
  *             type: object
  *             required:
  *               - email
- *               - useername
+ *               - username
  *               - password
  *             properties:
  *               email:
