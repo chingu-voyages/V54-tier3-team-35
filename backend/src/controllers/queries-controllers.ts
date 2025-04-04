@@ -23,7 +23,7 @@ class QueryController {
       response
     )
       .then((query) => {
-        res.status(201).json({ message: "Query uploaded succesfully", query });
+        res.status(201).json({ message: "Query uploaded successfully", query });
       })
       .catch((error) => {
         console.error("Error uploading Query:", error.message);
@@ -48,7 +48,7 @@ class QueryController {
         }
         res
           .status(200)
-          .json({ message: "User Queries fetched succesfully", queries });
+          .json({ message: "User Queries fetched successfully", queries });
       })
       .catch((error) => {
         console.error("Error fetching Queries:", error.message);
@@ -72,7 +72,7 @@ class QueryController {
         }
         res
           .status(200)
-          .json({ message: "Usery Query fetched succesfully", query });
+          .json({ message: "User Query fetched succesfully", query });
       })
       .catch((error) => {
         console.error("Error fetching Query:", error.message);
