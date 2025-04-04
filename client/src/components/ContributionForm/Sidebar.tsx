@@ -85,9 +85,9 @@ const Sidebar: React.FC<SidebarProps> = ({
         )}
         <div className="w-full">
           <div onClick={() => navigate("/")} className="cursor-pointer">
-            <h2 className="font-bold text-3xl mb-6 hover:text-[#4a250a]">
+            <h1 className="font-bold text-3xl mb-6 hover:text-[#4a250a]">
               AskIQ
-            </h2>
+            </h1>
           </div>
           <ul className="p-4 pl-1 space-y-2 overflow-y-auto min-h-[70vh] max-h-[70vh] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
           {loading ? (
