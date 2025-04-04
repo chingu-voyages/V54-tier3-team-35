@@ -7,7 +7,9 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Brand Name */}
           <div className="text-xl font-bold mb-4 md:mb-0">
-            <span>AskIQ</span>
+            <h1>
+              <span>AskIQ</span>
+            </h1>
           </div>
 
           {/* Navigation Links */}

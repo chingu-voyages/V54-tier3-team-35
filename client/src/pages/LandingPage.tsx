@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import AuthForm from "../components/AuthForm";
-import GifAnimation from "../components/gif_animation";
+import GifAnimation from "../components/GifAnimation";
 import Footer from "../components/Footer";
 
 const LandingPage: React.FC = () => {
@@ -16,7 +16,7 @@ const LandingPage: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-[#e4f1f1] flex flex-col min-h-screen">
+    <div className="w-full bg-[#f1e9d7] flex flex-col min-h-screen">
       {/* Hero Section */}
       <div className="w-full flex flex-col md:flex-row justify-between py-10 px-4 md:px-20 mb-20">
         {/* Left Column - Auth & Info */}
@@ -114,7 +114,7 @@ const LandingPage: React.FC = () => {
         </div>
 
         {/* Right Column - Image */}
-        <div className="w-full md:w-1/2 mt-10 md:mt-0 flex bg-[#d1d6c9] border rounded-lg">
+        <div className="w-full md:w-1/2 mt-10 md:mt-0 flex bg-[#e1d3c5] border rounded-lg">
           <div className="w-full max-w-md p-4">
             <img
               src="https://images.pexels.com/photos/8489961/pexels-photo-8489961.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
@@ -156,9 +156,9 @@ const LandingPage: React.FC = () => {
             </div>
 
             <div className="text-center md:text-left mt-6 md:mt-0">
-              <h2 className="text-2xl sm:text-3xl font-bold">
+              <h1 className="text-2xl sm:text-3xl font-bold">
                 Precision With AskIQ
-              </h2>
+              </h1>
               <p className="text-lg sm:text-[1.2rem] max-w-2xl mt-4">
                 Unlock the power of Google Gemini by leveraging its advanced AI
                 capabilities to refine your prompts, making interactions smarter
