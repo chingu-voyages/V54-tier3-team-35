@@ -6,7 +6,7 @@ const GifAnimation: React.FC = () => {
       <img
         src="/desktop_gif.gif"
         alt="Desktop GIF"
-        className="hidden md:block border-t-[50px] border-l-[40px] border-[#d1d6c9] rounded-lg"
+        className="hidden md:block border-t-[70px] border-l-[50px] border-[#e1d3c5] rounded-lg"
       />
     </div>
   );

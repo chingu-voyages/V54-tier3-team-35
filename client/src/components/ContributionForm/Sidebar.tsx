@@ -53,7 +53,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <aside
-      className={`md:w-1/5  p-3 pt-10 flex justify-center bg-[#e4f1f1] ${isMobileMenuOpen
+      className={`md:w-1/5  p-3 pt-10 flex justify-center bg-[#f1e9d7] ${isMobileMenuOpen
         ? "fixed top-0 left-0 h-full w-full z-50 transform translate-x-0"
         : "transform -translate-x-full md:translate-x-0"
         } transition-transform duration-300 md:static ${isMobileMenuOpen ? "block" : "hidden md:block"
@@ -85,12 +85,12 @@ const Sidebar: React.FC<SidebarProps> = ({
         )}
         <div className="w-full">
           <div onClick={() => navigate("/")} className="cursor-pointer">
-            <h2 className="font-bold text-3xl mb-6 hover:text-[#4a250a]">
+          <h1 className="font-bold text-3xl mb-6 hover:text-[#4a250a]">
               AskIQ
-            </h2>
+            </h1>
           </div>
           <ul className="p-4 pl-1 space-y-2 overflow-y-auto min-h-[70vh] max-h-[70vh] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
-          {loading ? (
+            {loading ? (
               <li className="text-gray-400 text-sm text-center">Loading...</li>
             ) : userHistory && userHistory.length > 0 ? (
               userHistory.map((item: any) => (
