@@ -123,11 +123,9 @@ class QueryController {
       res.status(400).json({ message: "Query ID is required" });
     }
 
-    if (!userId) {
+   if (!userId || isNaN(userId)) {
       res.status(401).json({ message: "Unauthorised: No user ID found" });
     }
-
-    //  TODO Check if the logged-in user is the owner of the query once load query is done.
 
     QueryModel.deleteQuery(queryId, userId)
       .then((result) => {
