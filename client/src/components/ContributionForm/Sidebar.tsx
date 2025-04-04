@@ -53,13 +53,11 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <aside
-      className={`md:w-1/5 shadow-md p-5 pt-10 flex justify-center bg-[#F3E5D7] ${
-        isMobileMenuOpen
-          ? "fixed top-0 left-0 h-full w-full z-50 transform translate-x-0"
-          : "transform -translate-x-full md:translate-x-0"
-      } transition-transform duration-300 md:static ${
-        isMobileMenuOpen ? "block" : "hidden md:block"
-      }`}
+      className={`md:w-1/5  p-3 pt-10 flex justify-center bg-[#f1e9d7] ${isMobileMenuOpen
+        ? "fixed top-0 left-0 h-full w-full z-50 transform translate-x-0"
+        : "transform -translate-x-full md:translate-x-0"
+        } transition-transform duration-300 md:static ${isMobileMenuOpen ? "block" : "hidden md:block"
+        }`}
     >
       <div className="bg-white w-full flex flex-col justify-between max-w-2xl p-6 rounded-xl shadow">
         {isMobileMenuOpen && (
@@ -87,23 +85,28 @@ const Sidebar: React.FC<SidebarProps> = ({
         )}
         <div className="w-full">
           <div onClick={() => navigate("/")} className="cursor-pointer">
-            <h2 className="font-bold text-lg mb-6">AskIQ</h2>
+            <h1 className="font-bold text-3xl mb-6 hover:text-[#4a250a]">
+              AskIQ
+            </h1>
           </div>
-          <ul className="space-y-4 overflow-y-auto min-h-[300px] lg:min-h-[80vh] md:min-h-[70vh] sm:min-h-[60vh] min-h-[90vh]">
-            {loading ? (
-              <li className="text-gray-400">Loading...</li>
+          <ul className="p-4 pl-1 space-y-2 overflow-y-auto min-h-[70vh] max-h-[70vh] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+          {loading ? (
+              <li className="text-gray-400 text-sm text-center">Loading...</li>
             ) : userHistory && userHistory.length > 0 ? (
               userHistory.map((item: any) => (
                 <li
                   key={item.id}
-                  className="text-gray-700 hover:text-black cursor-pointer flex justify-between items-center"
+                  className="flex justify-between items-center border-b text-sm text-gray-700 hover:text-black cursor-pointer break-words"
                 >
-                  <span onClick={() => handleHistoryClick(item)}>
+                  <span
+                    className="truncate w-[85%]"
+                    onClick={() => handleHistoryClick(item)}
+                  >
                     {item.persona} - {item.task}
                   </span>
                   <button
                     onClick={() => handleDeleteHistory(item.id)}
-                    className="text-red-500 hover:text-red-700 focus:outline-none"
+                    className="text-red-500 hover:text-red-700 focus:outline-none ml-2"
                   >
                     <svg
                       className="h-4 w-4"
@@ -123,7 +126,24 @@ const Sidebar: React.FC<SidebarProps> = ({
                 </li>
               ))
             ) : (
-              <li className="text-gray-400">No history found</li>
+              <div className="flex flex-col items-center justify-center h-[300px] text-gray-400 text-sm">
+                <svg
+                  className="h-10 w-10 mb-2 text-gray-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M8 7V3m8 4V3M3 11h18M5 19h14M5 15h14m-9 4h4"
+                  />
+                </svg>
+                <span>No history found</span>
+                <span className="text-xs text-gray-500">Start by making a new prompt!</span>
+              </div>
             )}
           </ul>
         </div>
