@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { API_URL } from "../../consts";
 import { useAuth } from "../../hooks/useAuth";
 
 interface HistoryItem {
@@ -18,7 +17,7 @@ export const useUserHistory = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(`${API_URL}/queries?timestamp=${Date.now()}`, {
+      const response = await axios.get(`/api/queries?timestamp=${Date.now()}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Cache-Control": "no-cache",
@@ -39,7 +38,7 @@ export const useUserHistory = () => {
   const handleDeleteHistory = async (id: number) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`${API_URL}/queries/${id}`, {
+      await axios.delete(`/api/queries/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

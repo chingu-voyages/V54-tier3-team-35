@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
-import { API_URL } from "../../consts";
 
 export interface FormState {
   persona: string;
@@ -65,7 +64,7 @@ export const useContributionForm = (fetchHistory: () => void) => {
       }
 
       const aiResponse = await axios.post(
-        `${API_URL}/query-ai/query-response`,
+        `/api/query-ai/query-response`,
         formData,
         {
           headers: {
@@ -77,7 +76,7 @@ export const useContributionForm = (fetchHistory: () => void) => {
       const generatedResult = aiResponse.data.response;
 
       await axios.post(
-        `${API_URL}/queries`,
+        `/api/queries`,
         {
           ...formData,
           response: generatedResult,

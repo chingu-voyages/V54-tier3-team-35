@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { API_URL } from ".././consts";
 import axios, { AxiosError } from "axios";
 
 interface AuthFormProps {
@@ -85,7 +84,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
           return;
         }
      
-        const { data } = await axios.post<AuthResponse>(`${API_URL}/users/register`, formDataRegister);
+        const { data } = await axios.post<AuthResponse>(`/api/users/register`, formDataRegister);
         token = data.token;
         setIsLoading(false);
         setFormDataRegister({ username: "", email: "", password: "" });
@@ -104,7 +103,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLogin, setIsLogin, login }) => {
           return;
         }
 
-        const { data } = await axios.post<AuthResponse>(`${API_URL}/users/login`, formDataLogin);
+        const { data } = await axios.post<AuthResponse>(`/api/users/login`, formDataLogin);
         token = data.token;
         setIsLoading(false);
         setFormDataLogin({ email: "", password: "" });
