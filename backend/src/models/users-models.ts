@@ -6,7 +6,7 @@ class UserModel {
   static isUserEmailExists(email: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
       pool.query(
-        "SELECT * FROM Users WHERE Email = $1",
+        "SELECT * FROM users WHERE Email = $1",
         [email],
         (error, results) => {
           if (error) {
@@ -25,7 +25,7 @@ class UserModel {
   static isUsernameExists(username: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
       pool.query(
-        "SELECT * FROM Users WHERE Username = $1",
+        "SELECT * FROM users WHERE Username = $1",
         [username],
         (error, results) => {
           if (error) {
