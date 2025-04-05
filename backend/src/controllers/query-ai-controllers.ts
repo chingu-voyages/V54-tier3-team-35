@@ -1,10 +1,7 @@
 import { Request, Response } from "express";
 import { validationResult } from "express-validator";
-import dotenv from "dotenv";
 import { geminiService } from "../services/gemini";
 import { StatusCodes } from "http-status-codes";
-
-dotenv.config();
 
 class QueryAIController {
   public async  queryResponse(req: Request, res: Response): Promise<void> {

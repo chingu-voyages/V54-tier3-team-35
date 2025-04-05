@@ -12,8 +12,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
+      "http://127.0.0.1:5173",
       "http://localhost:5173",
-      "http://54.246.48.7/",
       config.CLIENT_URL
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
