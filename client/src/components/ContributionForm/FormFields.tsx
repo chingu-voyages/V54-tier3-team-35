@@ -83,11 +83,11 @@ const FormFields: React.FC<FormFieldsProps> = ({
         return (
           <div key={name}>
             <label className="block font-semibold mb-1">{label}</label>
-            <p className="text-sm text-gray-500 mb-2 italic">{description}</p>
             <textarea
               name={name}
               value={formData[name as keyof typeof formData]}
               onChange={handleChange}
+              placeholder={description}
               className={`w-full p-4 border ${
                 fieldError ? "border-red-500" : "border-gray-200"
               } rounded-xl resize-none h-24 focus:outline-none focus:ring-2 focus:ring-orange-300`}
