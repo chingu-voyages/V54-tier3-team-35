@@ -8,15 +8,14 @@ import { config } from "./config/env";
 
 const app = express();
 
-// "http://localhost:3000",
-// "http://localhost:5173",
-// "https://deploy-preview-88--staging-askiq.netlify.app/",
-// "https://staging-askiq.netlify.app/",
-// "https://askiq-live.netlify.app/",
 app.use(
   cors({
     origin: [
-      "*",
+      "http://localhost:3000",
+      "http://localhost:5173",
+      "https://deploy-preview-88--staging-askiq.netlify.app",
+      "https://staging-askiq.netlify.app",
+      "https://askiq-live.netlify.app",
       config.CLIENT_URL
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
@@ -40,6 +39,6 @@ if (process.env.NODE_ENV !== "production") {
 app.use("/users", usersRouter);
 app.use("/query-ai", usersMiddleware.verifyToken, aiQueryRouter);
 
-app.use("/queries", queriesRouter );
+app.use("/queries", queriesRouter);
 
 export default app;
