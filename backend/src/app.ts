@@ -13,7 +13,10 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:5173",
-      config.CLIENT_URL,
+      "https://deploy-preview-88--staging-askiq.netlify.app/",
+      "https://staging-askiq.netlify.app/",
+      "https://askiq-live.netlify.app/",
+      config.CLIENT_URL
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
