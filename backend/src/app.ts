@@ -23,6 +23,16 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+if (process.env.NODE_ENV !== "production") {
+  import("./swagger")
+    .then(({ setupSwagger }) => {
+      setupSwagger(app);
+    })
+    .catch((err) => {
+      console.error("Failed to load Swagger setup:", err);
+    });
+}
+
 app.use("/users", usersRouter);
 app.use("/query-ai", usersMiddleware.verifyToken, aiQueryRouter);
 
