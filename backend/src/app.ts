@@ -11,9 +11,13 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",
-      "http://localhost:5173",
-      config.CLIENT_URL,
+      // "http://localhost:3000",
+      // "http://localhost:5173",
+      // "https://deploy-preview-88--staging-askiq.netlify.app/",
+      // "https://staging-askiq.netlify.app/",
+      // "https://askiq-live.netlify.app/",
+      "*",
+      config.CLIENT_URL
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
@@ -22,6 +26,7 @@ app.use(
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 if (process.env.NODE_ENV !== "production") {
   import("./swagger")
     .then(({ setupSwagger }) => {
