@@ -20,7 +20,8 @@
      GEMINI_API_KEY={some_secret_key}
      GEMINI_MODEL=gemini-1.5-flash
      NODE_ENV=development
-     CLIENT_URL=http://localhost:3000
+     CORS_ORIGINS_PROD=https://staging-askiq.netlify.app,https://askiq-live.netlify.app,http://localhost:3000,http://localhost:5173
+     CORS_ORIGINS_DEV=http://localhost:3000,http://localhost:5173
      ```
 
 2. **Initialize the Database**  
