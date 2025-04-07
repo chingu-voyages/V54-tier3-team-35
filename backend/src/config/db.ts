@@ -2,7 +2,6 @@
 import { Pool } from 'pg';
 
 let pool: Pool;
-console.log('NODE_ENV:', process.env.NODE_ENV === "production");
 if (process.env.NODE_ENV === 'production') {
   pool = new Pool({
     connectionString: process.env.DATABASE_URL,
