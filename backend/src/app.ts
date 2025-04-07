@@ -8,14 +8,14 @@ import { config } from "./config/env";
 
 const app = express();
 
+// "http://localhost:3000",
+// "http://localhost:5173",
+// "https://deploy-preview-88--staging-askiq.netlify.app/",
+// "https://staging-askiq.netlify.app/",
+// "https://askiq-live.netlify.app/",
 app.use(
   cors({
     origin: [
-      // "http://localhost:3000",
-      // "http://localhost:5173",
-      // "https://deploy-preview-88--staging-askiq.netlify.app/",
-      // "https://staging-askiq.netlify.app/",
-      // "https://askiq-live.netlify.app/",
       "*",
       config.CLIENT_URL
     ],
