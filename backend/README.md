@@ -19,6 +19,8 @@
      SECRET_KEY={some_secret_key}
      GEMINI_API_KEY={some_secret_key}
      GEMINI_MODEL=gemini-1.5-flash
+     NODE_ENV=development
+     CLIENT_URL=http://localhost:3000
      ```
 
 2. **Initialize the Database**  
@@ -36,3 +38,8 @@
 ### Backend URL  
 Once running, the backend will be available at:  
 **[http://localhost:3000](http://localhost:3000)**  
+
+
+### API Documentation  
+
+When NODE_ENV=development, See the API documentation at **[http://localhost:3000/api-docs/](http://localhost:3000/api-docs/)**  
