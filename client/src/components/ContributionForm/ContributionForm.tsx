@@ -54,7 +54,7 @@ export default function ContributionForm() {
         loading={loading}
         formData={formData}
       />
-
+      <div className="lg:hidden fixed top-0 left-0 w-screen h-16 bg-black/80 z-30" />
       <div className="lg:hidden p-4 fixed top-4 left-4 z-40 flex items-center">
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
