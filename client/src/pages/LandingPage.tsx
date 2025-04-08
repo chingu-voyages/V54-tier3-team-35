@@ -20,7 +20,7 @@ const LandingPage: React.FC = () => {
       {/* Hero Section */}
       <div className="w-full flex flex-col md:flex-row justify-between py-10 px-4 md:px-20 mb-20">
         {/* Left Column - Auth & Info */}
-        <div className="w-full md:w-1/3 text-center md:text-left mb-8 md:mb-0 md:ml-20">
+        <div className="w-full md:w-1/3 text-center md:text-left mb-8 md:mb-0  xs830:ml-10">
           <h1 className="text-5xl font-bold mb-4">AskIQ</h1>
           <p className="text-gray-700 mb-6">
             Our vision is to create a streamlined, user-centric platform that
@@ -87,7 +87,7 @@ const LandingPage: React.FC = () => {
           {/* Learn More Button */}
           <div className="flex justify-center md:justify-center items-center mt-10">
             <h2
-              className="text-2xl font-semibold py-3 px-8 rounded-full bg-[#6D4C41] text-white hover:bg-[#5C3B31] cursor-pointer flex items-center"
+              className="text-2xl max-xs830:text-xl font-semibold py-3 px-8 rounded-full bg-[#6D4C41] text-white hover:bg-[#5C3B31] cursor-pointer flex items-center"
               onClick={() =>
                 document
                   .getElementById("meet-askiq")
