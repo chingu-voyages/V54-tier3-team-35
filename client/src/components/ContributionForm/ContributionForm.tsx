@@ -31,6 +31,7 @@ export default function ContributionForm() {
     validationErrors,
     fromEdit,
     setFormData,
+    formErrors,
   } = useContributionForm(fetchHistory);
 
   useEffect(() => {
@@ -107,6 +108,7 @@ export default function ContributionForm() {
               setFormData={setFormData}
               handleChange={handleChange}
               validationErrors={validationErrors}
+              formErrors={formErrors}
             />
             {error && <p className="text-red-500">{error}</p>}
             <div className="flex justify-center">

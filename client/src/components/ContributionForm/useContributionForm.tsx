@@ -29,6 +29,13 @@ export const useContributionForm = (fetchHistory: () => void) => {
     output: "",
     constraint: "",
   });
+  const [formErrors, setFormErrors] = useState<FormState>({
+    persona: "",
+    context: "",
+    task: "",
+    output: "",
+    constraint: "",
+  });
   const [showResult, setShowResult] = useState(false);
   const [result, setResult] = useState("");
   const [resultTitle, setResultTitle] = useState("Result");
@@ -52,10 +59,41 @@ export const useContributionForm = (fetchHistory: () => void) => {
     setValidationErrors([]);
   };
 
+  const checkFormValidity = async (formData: FormState) => {
+    const errors: FormState = {
+      persona: "",
+      context: "",
+      task: "",
+      output: "",
+      constraint: "",
+    };
+
+    const checkAndSetError = (
+      fieldName: keyof FormState,
+      fieldValue: string,
+      maxLength: number
+    ) => {
+      if (fieldValue.length < 0 || fieldValue.length > maxLength) {
+        errors[fieldName] = `${
+          fieldName.charAt(0).toUpperCase() + fieldName.slice(1)
+        } text must be between 1-${maxLength} Chars.`;
+      }
+    };
+
+    // Run checks for each field
+    checkAndSetError("persona", formData.persona, 250);
+    checkAndSetError("context", formData.context, 500);
+    checkAndSetError("task", formData.task, 500);
+    checkAndSetError("output", formData.output, 500);
+    checkAndSetError("constraint", formData.constraint, 500);
+
+    // Return errors
+    return errors;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setValidationErrors([]);
-    setShowResult(true);
     setError(null);
     try {
       const token = localStorage.getItem("token");
@@ -63,6 +101,13 @@ export const useContributionForm = (fetchHistory: () => void) => {
         console.error("No token found!");
         return;
       }
+      const errors = await checkFormValidity(formData);
+      setFormErrors(errors);
+
+      const hasErrors = Object.values(errors).some((msg) => msg !== "");
+      if (hasErrors) return;
+
+      setShowResult(true);
 
       const aiResponse = await axios.post(
         `${API_URL}/query-ai/query-response`,
@@ -163,5 +208,6 @@ export const useContributionForm = (fetchHistory: () => void) => {
     validationErrors,
     fromEdit,
     setFormData,
+    formErrors,
   };
 };

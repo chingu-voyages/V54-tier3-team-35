@@ -21,6 +21,7 @@ interface FormFieldsProps {
   userHistory: HistoryItem[];
   fromEdit: boolean;
   result: string;
+  formErrors: FormState;
 }
 
 const FormFields: React.FC<FormFieldsProps> = ({
@@ -31,6 +32,7 @@ const FormFields: React.FC<FormFieldsProps> = ({
   userHistory,
   result,
   setFormData,
+  formErrors,
 }) => {
   const fields = [
     {
@@ -94,6 +96,11 @@ const FormFields: React.FC<FormFieldsProps> = ({
             />
             {fieldError && (
               <p className="text-red-500 text-xs mt-1">{fieldError.msg}</p>
+            )}
+            {formErrors[name as keyof typeof formErrors] && (
+              <p className="text-red-500 text-xs mt-1">
+                {formErrors[name as keyof typeof formErrors]}
+              </p>
             )}
           </div>
         );
