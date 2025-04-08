@@ -55,10 +55,11 @@ export default function ContributionForm() {
         loading={loading}
         formData={formData}
       />
-      <div className="md:hidden p-4 fixed top-4 left-4 z-40 flex items-center">
+      <div className="lg:hidden fixed top-0 left-0 w-screen h-16 bg-black/80 z-30" />
+      <div className="lg:hidden p-4 fixed top-4 left-4 z-40 flex items-center">
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="text-[#5C2E0C] focus:outline-none"
+          className="text-[#5C2e2C] focus:outline-none"
         >
           <svg
             className="h-6 w-6 fill-current"
@@ -98,7 +99,7 @@ export default function ContributionForm() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="bg-white w-full max-w-2xl p-6 rounded-xl space-y-6 shadow"
+            className="bg-white w-full max-w-2xl p-6 rounded-xl space-y-6 shadow mt-16 lg:mt-0"
           >
             <FormFields
               result={result}

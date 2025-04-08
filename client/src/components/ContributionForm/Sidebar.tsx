@@ -49,13 +49,22 @@ const Sidebar: React.FC<SidebarProps> = ({
   };
 
   return (
-    <aside
-      className={`md:w-1/5 p-4 pt-10 flex justify-center bg-[#f1e9d7] ${
+    // <aside
+    //   className={`md:w-1/5 p-4 pt-10 flex justify-center bg-[#f1e9d7] ${
+    //     isMobileMenuOpen
+    //       ? "fixed top-0 left-0 h-full w-full z-50 transform translate-x-0"
+    //       : "transform -translate-x-full md:translate-x-0"
+    //   } transition-transform duration-300 md:static ${
+    //     isMobileMenuOpen ? "block" : "hidden md:block"
+    //   }`}
+    // >
+        <aside
+      className={`lg:w-1/5 p-4 pt-10 flex justify-center bg-[#f1e9d7] ${
         isMobileMenuOpen
           ? "fixed top-0 left-0 h-full w-full z-50 transform translate-x-0"
-          : "transform -translate-x-full md:translate-x-0"
-      } transition-transform duration-300 md:static ${
-        isMobileMenuOpen ? "block" : "hidden md:block"
+          : "transform -translate-x-full lg:translate-x-0"
+      } transition-transform duration-300 lg:static ${
+        isMobileMenuOpen ? "block" : "hidden lg:block"
       }`}
     >
       <div className="bg-white w-full flex flex-col justify-between max-w-2xl p-6 rounded-xl shadow-md">
