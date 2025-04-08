@@ -81,11 +81,11 @@ export const useContributionForm = (fetchHistory: () => void) => {
     };
 
     // Run checks for each field
-    checkAndSetError("persona", formData.persona, 250);
-    checkAndSetError("context", formData.context, 500);
-    checkAndSetError("task", formData.task, 500);
-    checkAndSetError("output", formData.output, 500);
-    checkAndSetError("constraint", formData.constraint, 500);
+    checkAndSetError("persona", formData.persona, 500);
+    checkAndSetError("context", formData.context, 1000);
+    checkAndSetError("task", formData.task, 1000);
+    checkAndSetError("output", formData.output, 1000);
+    checkAndSetError("constraint", formData.constraint, 1000);
 
     // Return errors
     return errors;
