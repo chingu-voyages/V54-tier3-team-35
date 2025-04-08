@@ -1,8 +1,16 @@
 import React from "react";
-
+const contributors = [
+  { name: "Doris John", link: "https://github.com/Djohn25" },
+  { name: "VICTORIA IDRIS", link: "https://github.com/VICTORIAIDRIS" },
+  { name: "Ahmed Sohail", link: "https://github.com/Ahmed-Sohail2000" },
+  { name: "Zaid Hassan", link: "https://github.com/ZaidHassan96" },
+  { name: "Conor Barry", link: "https://github.com/CaptOrb" },
+  { name: "Ngodi Albert", link: "https://github.com/ngodi" },
+  { name: "Maryam Hazrati", link: "https://github.com/Maryamh12" },
+];
 const Footer: React.FC = () => {
   return (
-    <div className="bg-black text-white py-8 mt-10">
+    <div className="bg-black text-white py-8 ">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Brand Name */}
@@ -10,6 +18,7 @@ const Footer: React.FC = () => {
             <h1>
               <span>AskIQ</span>
             </h1>
+            
           </div>
 
           {/* Navigation Links */}
@@ -69,6 +78,31 @@ const Footer: React.FC = () => {
           <p>&copy; 2025 AskIQ. All Rights Reserved.</p>
         </div>
       </div>
+      <p className="text-sm text-gray-400 mt-20 ml-auto mr-auto text-center">
+        Made by{" "}
+        <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="inline h-5 w-5 text-gray-400"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        >
+          <path d="M12 2a7 7 0 00-7 7v1a5 5 0 00-2 4v1a1 1 0 001 1h16a1 1 0 001-1v-1a5 5 0 00-2-4V9a7 7 0 00-7-7zm0 2a5 5 0 015 5v1H7V9a5 5 0 015-5zm-6 9h12a3 3 0 011.234.27A3.978 3.978 0 0017 16H7a3.978 3.978 0 00-2.234-2.73A3 3 0 016 13zm6 4a2 2 0 012 2H8a2 2 0 012-2h2z" />
+        </svg>
+        
+        {contributors.map((person, index) => (
+          <span key={index} className="text-gray-400  ml-5">
+            <a
+              href={person.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white"
+            >
+              {person.name}
+            </a>
+            
+          </span>
+        ))}
+      </p>
     </div>
   );
 };
