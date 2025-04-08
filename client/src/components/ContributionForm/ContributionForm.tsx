@@ -98,7 +98,7 @@ export default function ContributionForm() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="bg-white w-full max-w-2xl p-6 rounded-xl space-y-6 shadow"
+            className="bg-white w-full max-w-2xl p-6 rounded-xl space-y-6 shadow mt-16 lg:mt-0"
           >
             <FormFields
               result={result}
