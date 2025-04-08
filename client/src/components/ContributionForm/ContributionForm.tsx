@@ -54,10 +54,11 @@ export default function ContributionForm() {
         loading={loading}
         formData={formData}
       />
-      <div className="md:hidden p-4 fixed top-4 left-4 z-40 flex items-center">
+
+      <div className="lg:hidden p-4 fixed top-4 left-4 z-40 flex items-center">
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="text-[#5C2E0C] focus:outline-none"
+          className="text-[#5C2e2C] focus:outline-none"
         >
           <svg
             className="h-6 w-6 fill-current"
