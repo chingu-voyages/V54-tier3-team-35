@@ -17,7 +17,42 @@ AskIQ contains fundamentals features and functionalities that makes it unique an
 
 ## How to use the AskIQ App 
 
-This will contain live app link and instructions on how to run it locally....
+Here are the below steps needed to run the app in your system:
+
+Step 1 : Get a Gemini API key from [https://ai.google.dev/gemini-api/docs/api-key]
+Step 2: create an .env file in the backend directory with the following contents
+
+`DB_HOST`=localhost 
+`DB_USER`=postgres
+`DB_PASSWORD`={YOUR-POSTGRES-PASSWORD]
+`DB_NAME`=database
+`DB_PORT`=5432
+`SECRET_KEY`={YOUR-SECRET-JWT-KEY}
+`GEMINI_API_KEY`={YOUR-SECRET-GEMINI-KEY}
+`GEMINI_MODEL`=gemini-1.5-flash
+`DATABASE_URL`={YOUR-PROD-POSTRESQL-DB}
+`NODE_ENV`=development
+`CORS_ORIGINS_PROD`={YOUR_PROD_CORS_ORIGINS}
+`CORS_ORIGINS_DEV`=http://localhost:3000,http://localhost:5173
+
+Step 3: cd backend
+
+Step 4: Add psql to Path if on Windows
+
+Step 5: Run the following command to create the database and tables:
+
+`psql -U postgres -f src/setup.sql`
+
+Step 6: Start the Backend and type npm run dev
+
+Step 7: cd client
+
+Step 8: npm install
+
+Step 9: Run the Frontend: npm run dev
+
+Step 10:
+Frontend will be available on http://localhost:5173/
 
 ## Project Dependencies
 
