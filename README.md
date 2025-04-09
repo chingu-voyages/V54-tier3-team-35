@@ -1,10 +1,10 @@
-# AskIQ
+# AskIQ 🤖👨‍💻
 
-# Project Overview
+# Project Overview 📚
 
 AskIQ is an interactive AI GPT utilizing google gemini API to handle user queries and responses based on the user input form designed in a pentagram fashion to tailor custom queries for the model to respond, edit, and submit new queries.
 
-## Project Features/Functionalities
+## Project Features/Functionalities ⚙️
 
 AskIQ contains fundamentals features and functionalities that makes it unique and distinctive to the other AI models which are:
 
@@ -15,14 +15,14 @@ AskIQ contains fundamentals features and functionalities that makes it unique an
 5. Validation and error handling for users submitting empty fields in the pentagram form.
 6. A result area of the model response to view and read from it.
 
-## Project Dependencies
+## Project Dependencies 🔗
 
 AskIQ has external resources that was used to deploy and operate which are:
 
 1. NodeJS
 2. PostgresSQL
 
-## How to use the AskIQ App 
+## How to use the AskIQ App 📃
 
 Here are the below steps needed to run the app in your system:
 
@@ -72,7 +72,7 @@ Step 9: Run the Frontend: npm run dev
 
 Step 10: Frontend will be available on http://localhost:5173/
 
-## Our Team 
+## Our Team 👱🏻‍♀️👩🏻‍🦰👩🏻👧🏽👧🏾
 
 - Doris John Primary Scrum Master #1: [GitHub](https://github.com/Djohn25) / [LinkedIn](https://www.linkedin.com/in/dorisukpejohn/) / [Email](Jsecus23@gmail.com)
 - VICTORIA IDRIS SHADOW SCRUM MASTER #2: [GitHub](https://github.com/VICTORIAIDRIS) / [LinkedIn](https://linkedin.com/in/VICTORIA-IDRIS-7847A1177) / [Email](UNEKWUIDRIS@GMAIL.COM)
