@@ -8,7 +8,7 @@ AskIQ is an interactive AI GPT utilizing google gemini API to handle user querie
 
 AskIQ contains fundamentals features and functionalities that makes it unique and distinctive to the other AI models which are:
 
-1. Has a user authentication and hashing in the landing page.
+1. A JWT based user authentication system, where user passwords are hashed and stored securely on the database.
 2. A gif animation overview of the working app for both desktop and mobile users.
 3. A submit button of the pentagram form to interact with the AI model.
 4. An edit the same user response or create a new response option which allows flexibility and accessibility for the ease of the user.
@@ -21,7 +21,11 @@ This will contain live app link and instructions on how to run it locally....
 
 ## Project Dependencies
 
-This will contain list of frameworks the app runs on externally and the resources for it.....
+AskIQ has external resources that was used to deploy and operate which are:
+
+1. NodeJS
+2. PostgresSQL
+
 
 ## Our Team 
 
