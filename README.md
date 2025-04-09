@@ -19,20 +19,31 @@ AskIQ contains fundamentals features and functionalities that makes it unique an
 
 Here are the below steps needed to run the app in your system:
 
-Step 1 : Get a Gemini API key from [https://ai.google.dev/gemini-api/docs/api-key]
+Step 1 : Get a Gemini API key from https://ai.google.dev/gemini-api/docs/api-key
 Step 2: create an .env file in the backend directory with the following contents
 
 `DB_HOST`=localhost 
+
 `DB_USER`=postgres
+
 `DB_PASSWORD`={YOUR-POSTGRES-PASSWORD]
+
 `DB_NAME`=database
+
 `DB_PORT`=5432
+
 `SECRET_KEY`={YOUR-SECRET-JWT-KEY}
+
 `GEMINI_API_KEY`={YOUR-SECRET-GEMINI-KEY}
+
 `GEMINI_MODEL`=gemini-1.5-flash
+
 `DATABASE_URL`={YOUR-PROD-POSTRESQL-DB}
+
 `NODE_ENV`=development
+
 `CORS_ORIGINS_PROD`={YOUR_PROD_CORS_ORIGINS}
+
 `CORS_ORIGINS_DEV`=http://localhost:3000,http://localhost:5173
 
 Step 3: cd backend
