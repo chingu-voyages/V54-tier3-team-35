@@ -1,76 +1,82 @@
-# AskIQ 🤖👨‍💻
+AskIQ 🤖👨‍💻
 
-# Project Overview 📚
+Project Overview 📚
 
-AskIQ is an interactive AI GPT utilizing google gemini API to handle user queries and responses based on the user input form designed in a pentagram fashion to tailor custom queries for the model to respond, edit, and submit new queries.
+AskIQ is an interactive AI GPT application that utilizes the Google Gemini API to handle user queries. It is based on a pentagram-style input form designed to tailor custom queries, which the model can respond to, edit, or use to generate new queries.
 
-## Project Features/Functionalities ⚙️
+Project Features/Functionalities ⚙️
 
-AskIQ contains fundamentals features and functionalities that makes it unique and distinctive to the other AI models which are:
+AskIQ includes fundamental features and functionalities that make it unique and distinctive from other AI models:
 
-1. A JWT based user authentication system, where user passwords are hashed and stored securely on the database.
-2. A gif animation overview of the working app for both desktop and mobile users.
-3. A submit button of the pentagram form to interact with the AI model.
-4. An edit the same user response or create a new response option which allows flexibility and accessibility for the ease of the user.
-5. Validation and error handling for users submitting empty fields in the pentagram form.
-6. A result area of the model response to view and read from it.
+ 1. A JWT-based user authentication system, where passwords are hashed and securely stored in the database.
 
-## Project Dependencies 🔗
+ 2. A GIF animation showcasing the app in action for both desktop and mobile users.
 
-AskIQ has external resources that was used to deploy and operate which are:
+ 3. A submit button integrated with the pentagram form to interact with the AI model.
 
-1. NodeJS
-2. PostgresSQL
+ 4. An option to edit a previous response or create a new one, offering flexibility and ease of use.
 
-## How to use the AskIQ App 📃
+ 5. Validation and error handling for empty fields in the pentagram form.
 
-Here are the below steps needed to run the app in your system:
+ 6. A result area displaying the AI model's response for users to view and read.
 
-Step 1 : Get a Gemini API key from https://ai.google.dev/gemini-api/docs/api-key
+Project Dependencies 🔗
 
-Step 2: create an .env file in the backend directory with the following contents:
+AskIQ uses several external resources to function and deploy properly:
 
-  * `DB_HOST`=localhost 
+ 1. Node.js
 
-  * `DB_USER`=postgres
+ 2. PostgreSQL
 
-  * `DB_PASSWORD`={YOUR-POSTGRES-PASSWORD]
+How to Use the AskIQ App 📃
 
-  * `DB_NAME`=database
+Follow these steps to run the app on your system:
 
-  * `DB_PORT`=5432
+Step 1: Get a Gemini API key from: https://ai.google.dev/gemini-api/docs/api-key
 
-  * `SECRET_KEY`={YOUR-SECRET-JWT-KEY}
+Step 2: Create a .env file in the backend directory with the following contents:
 
-  * `GEMINI_API_KEY`={YOUR-SECRET-GEMINI-KEY}
-
-  * `GEMINI_MODEL`=gemini-1.5-flash
-
-  * `DATABASE_URL`={YOUR-PROD-POSTRESQL-DB}
-
-  * `NODE_ENV`=development
-
-  * `CORS_ORIGINS_PROD`={YOUR_PROD_CORS_ORIGINS}
-
-  * `CORS_ORIGINS_DEV`=http://localhost:3000,http://localhost:5173
+ * `DB_HOST`=localhost
+   
+ * `DB_USER`=postgres
+   
+ * `DB_PASSWORD`={YOUR-POSTGRES-PASSWORD}
+    
+ * `DB_NAME`=database
+   
+* `DB_PORT`=5432
+    
+ * `SECRET_KEY`={YOUR-SECRET-JWT-KEY}
+     
+ * `GEMINI_API_KEY`={YOUR-SECRET-GEMINI-KEY}
+   
+ * `GEMINI_MODEL`=gemini-1.5-flash
+   
+ * `DATABASE_URL`={YOUR-PROD-POSTGRESQL-DB}
+   
+ * `NODE_ENV`=development
+   
+ * `CORS_ORIGINS_PROD`={YOUR_PROD_CORS_ORIGINS}
+     
+ * `CORS_ORIGINS_DEV`=http://localhost:3000,http://localhost:5173  
 
 Step 3: cd backend
 
-Step 4: Add psql to Path if on Windows
+Step 4: Add psql to PATH (if you're on Windows)
 
 Step 5: Run the following command to create the database and tables:
 
 `psql -U postgres -f src/setup.sql`
 
-Step 6: Start the Backend: npm run dev
+Step 6: Start the backend: npm run dev
 
 Step 7: cd client
 
-Step 8: npm install
+Step 8: Install dependencies:npm install
 
-Step 9: Run the Frontend: npm run dev
+Step 9: Start the frontend: npm run dev
 
-Step 10: Frontend will be available on http://localhost:5173/
+Step 10: The frontend will be available at: http://localhost:5173/
 
 ## App Video Overview 📽️
 
