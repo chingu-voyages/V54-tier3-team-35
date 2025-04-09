@@ -20,7 +20,8 @@ AskIQ contains fundamentals features and functionalities that makes it unique an
 Here are the below steps needed to run the app in your system:
 
 Step 1 : Get a Gemini API key from https://ai.google.dev/gemini-api/docs/api-key
-Step 2: create an .env file in the backend directory with the following contents
+
+Step 2: create an .env file in the backend directory with the following contents:
 
   * `DB_HOST`=localhost 
 
@@ -62,8 +63,7 @@ Step 8: npm install
 
 Step 9: Run the Frontend: npm run dev
 
-Step 10:
-Frontend will be available on http://localhost:5173/
+Step 10: Frontend will be available on http://localhost:5173/
 
 ## Project Dependencies
 
