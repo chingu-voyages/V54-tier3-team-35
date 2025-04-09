@@ -10,11 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:5173",
-      config.CLIENT_URL,
-    ],
+    origin: config.CORS_ORIGINS, 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -22,6 +18,7 @@ app.use(
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 if (process.env.NODE_ENV !== "production") {
   import("./swagger")
     .then(({ setupSwagger }) => {
@@ -35,6 +32,6 @@ if (process.env.NODE_ENV !== "production") {
 app.use("/users", usersRouter);
 app.use("/query-ai", usersMiddleware.verifyToken, aiQueryRouter);
 
-app.use("/queries", queriesRouter );
+app.use("/queries", queriesRouter);
 
 export default app;

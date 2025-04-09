@@ -21,6 +21,7 @@ interface FormFieldsProps {
   userHistory: HistoryItem[];
   fromEdit: boolean;
   result: string;
+  formErrors: FormState;
 }
 
 const FormFields: React.FC<FormFieldsProps> = ({
@@ -31,6 +32,7 @@ const FormFields: React.FC<FormFieldsProps> = ({
   userHistory,
   result,
   setFormData,
+  formErrors,
 }) => {
   const fields = [
     {
@@ -83,17 +85,22 @@ const FormFields: React.FC<FormFieldsProps> = ({
         return (
           <div key={name}>
             <label className="block font-semibold mb-1">{label}</label>
-            <p className="text-sm text-gray-500 mb-2 italic">{description}</p>
             <textarea
               name={name}
               value={formData[name as keyof typeof formData]}
               onChange={handleChange}
+              placeholder={description}
               className={`w-full p-4 border ${
                 fieldError ? "border-red-500" : "border-gray-200"
               } rounded-xl resize-none h-24 focus:outline-none focus:ring-2 focus:ring-orange-300`}
             />
             {fieldError && (
               <p className="text-red-500 text-xs mt-1">{fieldError.msg}</p>
+            )}
+            {formErrors[name as keyof typeof formErrors] && (
+              <p className="text-red-500 text-xs mt-1">
+                {formErrors[name as keyof typeof formErrors]}
+              </p>
             )}
           </div>
         );

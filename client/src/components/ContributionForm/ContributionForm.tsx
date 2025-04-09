@@ -31,6 +31,7 @@ export default function ContributionForm() {
     validationErrors,
     fromEdit,
     setFormData,
+    formErrors,
   } = useContributionForm(fetchHistory);
 
   useEffect(() => {
@@ -54,7 +55,7 @@ export default function ContributionForm() {
         loading={loading}
         formData={formData}
       />
-      <div className="md:hidden p-4 fixed top-4 left-4 z-40">
+      <div className="md:hidden p-4 fixed top-4 left-4 z-40 flex items-center">
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="text-[#5C2E0C] focus:outline-none"
@@ -107,6 +108,7 @@ export default function ContributionForm() {
               setFormData={setFormData}
               handleChange={handleChange}
               validationErrors={validationErrors}
+              formErrors={formErrors}
             />
             {error && <p className="text-red-500">{error}</p>}
             <div className="flex justify-center">

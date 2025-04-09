@@ -8,7 +8,7 @@ class QueryMiddleware {
       check("persona")
         .isString()
         .isLength({ min: 1, max: 500 })
-        .withMessage("persona must be a non-empty string (max 255 chars)"),
+        .withMessage("persona must be a non-empty string (max 500 chars)"),
       check("context")
         .isString()
         .isLength({ min: 1, max: 1000 })

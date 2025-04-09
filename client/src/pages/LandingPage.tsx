@@ -18,25 +18,9 @@ const LandingPage: React.FC = () => {
   return (
     <div className="w-full bg-[#f1e9d7] flex flex-col min-h-screen overflow-hidden relative">
       {/* Hero Section */}
-      <div className="relative z-10" id="content-section">
-      {isLoggedIn && (
-          <div className="absolute top-0 left-0 w-full h-full  z-[-1]" id="video-container">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover filter "
-            >
-              <source
-                src="https://videos.pexels.com/video-files/2408284/2408284-sd_640_360_24fps.mp4"
-                type="video/mp4"
-              />
-            </video>
-            <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40" />
-          </div>
-        )}
-      <div className="w-full flex flex-col md:flex-row justify-between py-10 px-4 md:px-20 mb-20 z-10">
+      
+     
+      <div className="w-full flex flex-col md:flex-row justify-between py-10 px-4 md:px-20 mb-20 ">
         {/* Left Column - Auth & Info */}
         <div className="w-full md:w-1/3 text-center md:text-left mb-8 md:mb-0 md:ml-20">
           <h1 className="text-5xl font-bold mb-4">AskIQ</h1>
@@ -144,7 +128,7 @@ const LandingPage: React.FC = () => {
       </div>
 
       {/* Meet AskIQ Section */}
-      <div className="mt-[22rem] mx-4 sm:mx-10 z-10">
+      <div className="mt-[22rem] mx-4 sm:mx-10">
         <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
           <h1 id="meet-askiq" className="text-3xl sm:text-4xl font-bold mb-4">
             Meet AskIQ
@@ -186,7 +170,7 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </div>
-      </div>
+      
 
       {/* Footer */}
       <Footer />
