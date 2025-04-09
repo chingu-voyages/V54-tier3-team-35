@@ -72,6 +72,10 @@ Step 9: Run the Frontend: npm run dev
 
 Step 10: Frontend will be available on http://localhost:5173/
 
+## App Video Overview
+
+![App demo - Desktop](/client/public/desktop_gif.gif)
+
 ## Our Team 👱🏻‍♀️👩🏻‍🦰👩🏻👧🏽👧🏾
 
 - Doris John Primary Scrum Master #1: [GitHub](https://github.com/Djohn25) / [LinkedIn](https://www.linkedin.com/in/dorisukpejohn/) / [Email](Jsecus23@gmail.com)
