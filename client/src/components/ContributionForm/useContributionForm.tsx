@@ -121,16 +121,16 @@ export const useContributionForm = (fetchHistory: () => void) => {
 
       const generatedResult = aiResponse.data.response;
 
-      await axios.post(
-        `${API_URL}/queries`,
-        {
-          ...formData,
-          response: generatedResult,
-        },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      // await axios.post(
+      //   `${API_URL}/queries`,
+      //   {
+      //     ...formData,
+      //     response: generatedResult,
+      //   },
+      //   {
+      //     headers: { Authorization: `Bearer ${token}` },
+      //   }
+      // );
 
       setResult(generatedResult);
       setResultTitle("Result");
