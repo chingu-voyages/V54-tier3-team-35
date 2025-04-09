@@ -19,6 +19,9 @@
      SECRET_KEY={some_secret_key}
      GEMINI_API_KEY={some_secret_key}
      GEMINI_MODEL=gemini-1.5-flash
+     NODE_ENV=development
+     CORS_ORIGINS_PROD=https://staging-askiq.netlify.app,https://askiq-live.netlify.app,http://localhost:3000,http://localhost:5173
+     CORS_ORIGINS_DEV=http://localhost:3000,http://localhost:5173
      ```
 
 2. **Initialize the Database**  
@@ -36,3 +39,8 @@
 ### Backend URL  
 Once running, the backend will be available at:  
 **[http://localhost:3000](http://localhost:3000)**  
+
+
+### API Documentation  
+
+When NODE_ENV=development, See the API documentation at **[http://localhost:3000/api-docs/](http://localhost:3000/api-docs/)**  

@@ -1,8 +1,7 @@
-import { Pool } from "pg";
+import { Pool } from 'pg';
 
 let pool: Pool;
-
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
   pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: {
@@ -21,13 +20,13 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const connectDB = async () => {
-  try {
-    await pool.connect();
-    console.log("PostgreSQL DATABASE connected");
-  } catch (err) {
-    const error = err as Error;
-    console.error("DB connection error:", error.stack || error.message);
-  }
-};
-
-export { pool, connectDB };
+    try {
+      await pool.connect();
+      console.log('PostgreSQL DATABASE connected');
+    } catch (err) {
+        const error = err as Error;
+        console.error('DB connection error:', error.stack || error.message);
+    }
+  };
+  
+  export { pool, connectDB };

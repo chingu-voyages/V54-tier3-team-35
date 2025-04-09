@@ -10,12 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "http://127.0.0.1:5173",
-      "http://localhost:5173",
-      config.CLIENT_URL
-    ],
+    origin: config.CORS_ORIGINS, 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
