@@ -1,38 +1,29 @@
-# voyage-tasks
+# AskIQ
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+# Project Overview
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+AskIQ is an interactive AI GPT utilizing google gemini API to handle user queries and responses based on the user input form designed in a pentagram fashion to tailor custom queries for the model to respond, edit, and submit new queries.
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+## Project Features/Functionalities
 
-> Own it & Make it your Own!
+AskIQ contains fundamentals features and functionalities that makes it unique and distinctive to the other AI models which are:
 
-## Team Documents
+1. Has a user authentication and hashing in the landing page.
+2. A gif animation overview of the working app for both desktop and mobile users.
+3. A submit button of the pentagram form to interact with the AI model.
+4. An edit the same user response or create a new response option which allows flexibility and accessibility for the ease of the user.
+5. Validation and error handling for users submitting empty fields in the pentagram form.
+6. A result area of the model response to view and read from it.
 
-You may find these helpful as you work together to organize your project.
+## How to use the AskIQ App 
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+This will contain live app link and instructions on how to run it locally....
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+## Project Dependencies
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+This will contain list of frameworks the app runs on externally and the resources for it.....
 
-## Our Team
-
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team *before* you start
-coding!
+## Our Team 
 
 - Doris John Primary Scrum Master #1: [GitHub](https://github.com/Djohn25) / [LinkedIn](https://www.linkedin.com/in/dorisukpejohn/) / [Email](Jsecus23@gmail.com)
 - VICTORIA IDRIS SHADOW SCRUM MASTER #2: [GitHub](https://github.com/VICTORIAIDRIS) / [LinkedIn](https://linkedin.com/in/VICTORIA-IDRIS-7847A1177) / [Email](UNEKWUIDRIS@GMAIL.COM)
