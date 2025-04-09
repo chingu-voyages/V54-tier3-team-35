@@ -15,6 +15,13 @@ AskIQ contains fundamentals features and functionalities that makes it unique an
 5. Validation and error handling for users submitting empty fields in the pentagram form.
 6. A result area of the model response to view and read from it.
 
+## Project Dependencies
+
+AskIQ has external resources that was used to deploy and operate which are:
+
+1. NodeJS
+2. PostgresSQL
+
 ## How to use the AskIQ App 
 
 Here are the below steps needed to run the app in your system:
@@ -64,14 +71,6 @@ Step 8: npm install
 Step 9: Run the Frontend: npm run dev
 
 Step 10: Frontend will be available on http://localhost:5173/
-
-## Project Dependencies
-
-AskIQ has external resources that was used to deploy and operate which are:
-
-1. NodeJS
-2. PostgresSQL
-
 
 ## Our Team 
 
