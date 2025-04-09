@@ -1,10 +1,10 @@
-AskIQ 🤖👨‍💻
+## AskIQ 🤖👨‍💻
 
-Project Overview 📚
+## Project Overview 📚
 
 AskIQ is an interactive AI GPT application that utilizes the Google Gemini API to handle user queries. It is based on a pentagram-style input form designed to tailor custom queries, which the model can respond to, edit, or use to generate new queries.
 
-Project Features/Functionalities ⚙️
+## Project Features/Functionalities ⚙️
 
 AskIQ includes fundamental features and functionalities that make it unique and distinctive from other AI models:
 
@@ -20,7 +20,7 @@ AskIQ includes fundamental features and functionalities that make it unique and 
 
  6. A result area displaying the AI model's response for users to view and read.
 
-Project Dependencies 🔗
+## Project Dependencies 🔗
 
 AskIQ uses several external resources to function and deploy properly:
 
@@ -28,7 +28,7 @@ AskIQ uses several external resources to function and deploy properly:
 
  2. PostgreSQL
 
-How to Use the AskIQ App 📃
+## How to Use the AskIQ App 📃
 
 Follow these steps to run the app on your system:
 
