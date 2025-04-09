@@ -72,7 +72,7 @@ Step 9: Run the Frontend: npm run dev
 
 Step 10: Frontend will be available on http://localhost:5173/
 
-## App Video Overview
+## App Video Overview 📽️
 
 ![App demo - Desktop](/client/public/desktop_gif.gif)
 
