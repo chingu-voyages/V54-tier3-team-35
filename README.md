@@ -1,38 +1,88 @@
-# voyage-tasks
+## AskIQ 🤖👨‍💻
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+## Project Overview 📚
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+AskIQ is an interactive AI GPT application that utilizes the Google Gemini API to handle user queries. It is based on a pentagram-style input form designed to tailor custom queries, which the model can respond to, edit, or use to generate new queries.
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+## Project Features/Functionalities ⚙️
 
-> Own it & Make it your Own!
+AskIQ includes fundamental features and functionalities that make it unique and distinctive from other AI models:
 
-## Team Documents
+ 1. A JWT-based user authentication system, where passwords are hashed and securely stored in the database.
 
-You may find these helpful as you work together to organize your project.
+ 2. A GIF animation showcasing the app in action for both desktop and mobile users.
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+ 3. A submit button integrated with the pentagram form to interact with the AI model.
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+ 4. An option to edit a previous response or create a new one, offering flexibility and ease of use.
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+ 5. Validation and error handling for empty fields in the pentagram form.
 
-## Our Team
+ 6. A result area displaying the AI model's response for users to view and read.
 
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team *before* you start
-coding!
+## Project Dependencies 🔗
+
+AskIQ uses several external resources to function and deploy properly:
+
+ 1. Node.js
+
+ 2. PostgreSQL
+
+## How to Use the AskIQ App 📃
+
+Follow these steps to run the app on your system:
+
+Step 1: Get a Gemini API key from: https://ai.google.dev/gemini-api/docs/api-key
+
+Step 2: Create a .env file in the backend directory with the following contents:
+
+ * `DB_HOST`=localhost
+   
+ * `DB_USER`=postgres
+   
+ * `DB_PASSWORD`={YOUR-POSTGRES-PASSWORD}
+    
+ * `DB_NAME`=database
+   
+* `DB_PORT`=5432
+    
+ * `SECRET_KEY`={YOUR-SECRET-JWT-KEY}
+     
+ * `GEMINI_API_KEY`={YOUR-SECRET-GEMINI-KEY}
+   
+ * `GEMINI_MODEL`=gemini-1.5-flash
+   
+ * `DATABASE_URL`={YOUR-PROD-POSTGRESQL-DB}
+   
+ * `NODE_ENV`=development
+   
+ * `CORS_ORIGINS_PROD`={YOUR_PROD_CORS_ORIGINS}
+     
+ * `CORS_ORIGINS_DEV`=http://localhost:3000,http://localhost:5173  
+
+Step 3: cd backend
+
+Step 4: Add psql to PATH (if you're on Windows)
+
+Step 5: Run the following command to create the database and tables:
+
+`psql -U postgres -f src/setup.sql`
+
+Step 6: Start the backend: npm run dev
+
+Step 7: cd client
+
+Step 8: Install dependencies:npm install
+
+Step 9: Start the frontend: npm run dev
+
+Step 10: The frontend will be available at: http://localhost:5173/
+
+## App Video Overview 📽️
+
+![App demo - Desktop](/client/public/desktop_gif.gif)
+
+## Our Team 👱🏻‍♀️👩🏻‍🦰👩🏻👧🏽👧🏾
 
 - Doris John Primary Scrum Master #1: [GitHub](https://github.com/Djohn25) / [LinkedIn](https://www.linkedin.com/in/dorisukpejohn/) / [Email](Jsecus23@gmail.com)
 - VICTORIA IDRIS SHADOW SCRUM MASTER #2: [GitHub](https://github.com/VICTORIAIDRIS) / [LinkedIn](https://linkedin.com/in/VICTORIA-IDRIS-7847A1177) / [Email](UNEKWUIDRIS@GMAIL.COM)
