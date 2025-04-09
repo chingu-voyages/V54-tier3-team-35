@@ -62,7 +62,7 @@ Step 5: Run the following command to create the database and tables:
 
 `psql -U postgres -f src/setup.sql`
 
-Step 6: Start the Backend and type npm run dev
+Step 6: Start the Backend: npm run dev
 
 Step 7: cd client
 
