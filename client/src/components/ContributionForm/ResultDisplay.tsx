@@ -18,7 +18,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({
   const [isResultFocused, setIsResultFocused] = useState(false);
 
   return (
-    <div className="bg-gray-100 p-4 sm:p-6 lg:p-8 rounded-xl shadow-md max-w-2xl w-full">
+    <div className="bg-gray-100 p-4 sm:p-6 lg:p-8 rounded-xl shadow-md max-w-2xl w-full mt-16 lg:mt-0">
       <h2 className="text-xl sm:text-2xl lg:text-2xl font-semibold mb-4 text-gray-800">
         {resultTitle}
       </h2>

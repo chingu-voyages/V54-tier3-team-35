@@ -1,10 +1,9 @@
 import { Request, Response } from "express";
 import { validationResult } from "express-validator";
-import dotenv from "dotenv";
 import { geminiService } from "../services/gemini";
 import { StatusCodes } from "http-status-codes";
+import { queries } from "../services/queries";
 
-dotenv.config();
 
 class QueryAIController {
   public async  queryResponse(req: Request, res: Response): Promise<void> {
@@ -19,7 +18,22 @@ class QueryAIController {
       const { persona, context, task, output, constraint } = req.body;
       const prompt: string = JSON.stringify({persona, context, task, output, constraint});
       const response: string = await geminiService.generateResponse(prompt);
-      console.log(response)
+
+      if (!response) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: "Error generating content, please try again" });
+        return;
+      }
+
+      await queries.saveQuery({
+        userId: Number(req.user?.id),
+        persona,
+        context,
+        task,
+        output,
+        constraint,
+        response,
+      });
+     
 
       res.status(StatusCodes.OK).json({ response: response });
 
