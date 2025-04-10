@@ -1,5 +1,9 @@
 ## AskIQ 🤖👨‍💻
 
+
+### 🌐 Live Demo  
+**🔗 [https://askiq-live.netlify.app](https://askiq-live.netlify.app)**
+
 ## Project Overview 📚
 
 AskIQ helps users optimise their AI interactions by guiding them to structure their queries more effectively. With a focus on precision, the app enables users to craft well-defined requests, ensuring that AI responses are more accurate and relevant. By sending these structured queries to Google Gemini, AskIQ unlocks the full potential of AI.
