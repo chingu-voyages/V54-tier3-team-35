@@ -2,81 +2,64 @@
 
 ## Project Overview 📚
 
-AskIQ is an interactive AI GPT application that utilizes the Google Gemini API to handle user queries. It is based on a pentagram-style input form designed to tailor custom queries, which the model can respond to, edit, or use to generate new queries.
+AskIQ helps users optimise their AI interactions by guiding them to structure their queries more effectively. With a focus on precision, the app enables users to craft well-defined requests, ensuring that AI responses are more accurate and relevant. By sending these structured queries to Google Gemini, AskIQ unlocks the full potential of AI.
 
 ## Project Features/Functionalities ⚙️
 
-AskIQ includes fundamental features and functionalities that make it unique and distinctive from other AI models:
+- **JWT-based User Authentication:**
+Secure user login and registration with hashed passwords stored in the database.
 
- 1. A JWT-based user authentication system, where passwords are hashed and securely stored in the database.
+- **Custom Query Input:** A pentagram-style form where users can create and submit custom queries to the AI model by filling in five key components.
+   
+   *1- Persona:*   Defines the character or perspective of the AI (e.g., expert, teacher, friend).
+   
+   *2- Context:*   Provides background information or situational details relevant to the query.
+   
+   *3- Task:*   Specifies the action or goal the AI should focus on (e.g., solving a problem, answering a question).
+   
+   *4- Output:* Details the desired outcome or format for the AI's response (e.g., list, explanation, code).
+   
+   *5- Constraint:* Any limitations or specific conditions the AI should consider when formulating its response (e.g., word count, tone, specific knowledge).
 
- 2. A GIF animation showcasing the app in action for both desktop and mobile users.
+- **AI Response Interaction:**
+Users can view, edit, or create new responses to previously submitted queries.
 
- 3. A submit button integrated with the pentagram form to interact with the AI model.
+- **History Tracking:**
+Keeps track of all previous user prompts in the sidebar for easy access to past interactions.
 
- 4. An option to edit a previous response or create a new one, offering flexibility and ease of use.
+- **Error Handling:**
+Input validation and error handling for missing or invalid inputs to ensure smooth user experience.
 
- 5. Validation and error handling for empty fields in the pentagram form.
+- **GIF Animations:**
+Dynamic animations for both desktop and mobile interfaces, showcasing the app's functionality in action.
 
- 6. A result area displaying the AI model's response for users to view and read.
-
-## Project Dependencies 🔗
-
-AskIQ uses several external resources to function and deploy properly:
+## Prerequisites 🔗
 
  1. Node.js
 
  2. PostgreSQL
 
+ 3. Npm
+
+ 4. Gemini API Key (Get a Gemini API key from: https://ai.google.dev/gemini-api/docs/api-key)
+
+
+## 🛠️ Project Structure
+
+This project is divided into Backend and Client components:
+
+**Backend:** Handles all API requests, user authentication, and communicates with the Google Gemini API.
+
+**Client:** Provides the user interface, built with React, TypeScript, and Vite.
+
 ## How to Use the AskIQ App 📃
 
-Follow these steps to run the app on your system:
+### To run AskIQ locally, follow the setup guides for both the backend and frontend:
 
-Step 1: Get a Gemini API key from: https://ai.google.dev/gemini-api/docs/api-key
+🔧 [Backend Setup](backend/README.md)
 
-Step 2: Create a .env file in the backend directory with the following contents:
+🎨 [Frontend Setup](client/README.md)
 
- * `DB_HOST`=localhost
-   
- * `DB_USER`=postgres
-   
- * `DB_PASSWORD`={YOUR-POSTGRES-PASSWORD}
-    
- * `DB_NAME`=database
-   
-* `DB_PORT`=5432
-    
- * `SECRET_KEY`={YOUR-SECRET-JWT-KEY}
-     
- * `GEMINI_API_KEY`={YOUR-SECRET-GEMINI-KEY}
-   
- * `GEMINI_MODEL`=gemini-1.5-flash
-   
- * `DATABASE_URL`={YOUR-PROD-POSTGRESQL-DB}
-   
- * `NODE_ENV`=development
-   
- * `CORS_ORIGINS_PROD`={YOUR_PROD_CORS_ORIGINS}
-     
- * `CORS_ORIGINS_DEV`=http://localhost:3000,http://localhost:5173  
-
-Step 3: cd backend
-
-Step 4: Add psql to PATH (if you're on Windows)
-
-Step 5: Run the following command to create the database and tables:
-
-`psql -U postgres -f src/setup.sql`
-
-Step 6: Start the backend: npm run dev
-
-Step 7: cd client
-
-Step 8: Install dependencies:npm install
-
-Step 9: Start the frontend: npm run dev
-
-Step 10: The frontend will be available at: http://localhost:5173/
 
 ## App Video Overview 📽️
 
