@@ -1,4 +1,4 @@
-# Running the Backend  
+## Backend Setup
 
 ### Prerequisites  
 - Install **PostgreSQL** if you haven’t already.  
