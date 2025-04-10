@@ -16,9 +16,11 @@ const LandingPage: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-[#f1e9d7] flex flex-col min-h-screen">
+    <div className="w-full bg-[#f1e9d7] flex flex-col min-h-screen overflow-hidden relative">
       {/* Hero Section */}
-      <div className="w-full flex flex-col md:flex-row justify-between py-10 px-4 md:px-20 mb-20">
+      
+     
+      <div className="w-full flex flex-col md:flex-row justify-between py-10 px-4 md:px-20 mb-20 ">
         {/* Left Column - Auth & Info */}
         <div className="w-full md:w-1/3 text-center md:text-left mb-8 md:mb-0  xs830:ml-10">
           <h1 className="text-5xl font-bold mb-4">AskIQ</h1>
@@ -139,7 +141,7 @@ const LandingPage: React.FC = () => {
         </div>
 
         {/* Features Section */}
-        <div className="flex flex-col items-center space-y-10 pt-10 mb-[10rem] sm:mb-[15rem]">
+        <div className="flex flex-col items-center space-y-10 pt-10 mb-[10rem] sm:mb-[15rem] ">
           <div className="flex flex-col md:flex-row items-center justify-between space-x-0 md:space-x-10">
             <div className="w-full max-w-2xl p-4 md:mr-10">
               {/* Mobile GIF */}
@@ -168,7 +170,9 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </div>
+      
 
+      {/* Footer */}
       <Footer />
     </div>
   );
