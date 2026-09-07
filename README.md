@@ -77,4 +77,4 @@ This project is divided into Backend and Client components:
 - Zaid Hassan Software Engineer: [GitHub](https://github.com/ZaidHassan96) / [LinkedIn](https://www.linkedin.com/in/zaid-h-b12b421ab/) / [Email](zaidhas96@outlook.com)
 - Conor Barry Software Engineer: [GitHub](https://github.com/CaptOrb) / [LinkedIn](https://www.linkedin.com/in/conor-barry1/) / [Email](tehorb13@gmail.com)
 - Ngodi Albert: [GitHub](https://github.com/ngodi) / [LinkedIn](https://linkedin.com/in/albertngodi) / [Email](albertngodi@gmail.com)
-- Maryam Hazrati: [GitHub](https://github.com/Maryamh12) / [LinkedIn](https://www.linkedin.com/in/maryam-hazratiii/)
+- Maryam Hazrati Software Engineer: [GitHub](https://github.com/Maryamh12) / [LinkedIn](https://www.linkedin.com/in/maryam-hazratiii/)
